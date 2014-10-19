@@ -1,0 +1,12 @@
+<resources>
+
+
+
+    <!-- extend one of the Theme.AppCompat themes -->
+    <style name="Theme.Zion_BaekhyangFest" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- customize the color palette -->
+        <item name="colorPrimary">#ff373166</item>
+        <item name="colorPrimaryDark">#ff28244b</item>
+        <item name="colorAccent">#ff373166</item>
+    </style>
+</resources>
