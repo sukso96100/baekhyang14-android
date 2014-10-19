@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">백향제 2014</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="card_booth_title">부스 찿기</string>
+    <string name="card_booth_desc">오전 시간동안 찿아가 보고 싶은 부스 위치 찿기.</string>
+
+    <string name="card_performance_title">공연 일정</string>
+    <string name="card_performance_desc">오후 시간동안 다양한 공연 일정들 확인하기.</string>
+
+</resources>

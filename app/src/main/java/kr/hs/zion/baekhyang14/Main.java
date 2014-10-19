@@ -1,9 +1,17 @@
 package kr.hs.zion.baekhyang14;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.ScrollView;
+
+import com.manuelpeinado.fadingactionbar.FadingActionBarHelper;
 
 
 public class Main extends ActionBarActivity {
@@ -12,7 +20,54 @@ public class Main extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final ScrollView SV = (ScrollView) findViewById(R.id.scrollview);
+        final View header = (View) findViewById(R.id.header);
+
+        if(SV.getScrollY()<=header.getBottom()/2){
+            getSupportActionBar().hide();
+        }else{
+            getSupportActionBar().show();
+        }
+
+        SV.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                    case MotionEvent.ACTION_MOVE:
+                        if(SV.getScrollY()<=header.getBottom()/2){
+                            getSupportActionBar().hide();
+                        }else{
+                            getSupportActionBar().show();
+                        }
+                        break;
+                    case MotionEvent.ACTION_DOWN:
+                        if(SV.getScrollY()<=header.getBottom()/2){
+                            getSupportActionBar().hide();
+                        }else{
+                            getSupportActionBar().show();
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        if(SV.getScrollY()<=header.getBottom()/2){
+                            getSupportActionBar().hide();
+                        }else{
+                            getSupportActionBar().show();
+                        }
+                        break;
+
+
+                }
+
+                return false;
+            }
+        });
+
+
+
     }
+
+
 
 
     @Override
