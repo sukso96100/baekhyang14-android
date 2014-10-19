@@ -10,12 +10,28 @@
         <activity
             android:name=".Main"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Zion_BaekhyangFest.Overlay">
+            android:theme="@style/Theme.Zion_BaekhyangFest.Overlay" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".FindBooth"
+            android:label="@string/title_activity_find_booth"
+            android:parentActivityName=".Main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.Main" />
+        </activity>
+        <activity
+            android:name=".PerformanceSchedule"
+            android:label="@string/title_activity_performance_schedule"
+            android:parentActivityName=".Main" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
     </application>
 

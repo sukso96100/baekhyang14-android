@@ -4,11 +4,11 @@
     <string name="app_name">Baekhyang14</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
     <string name="card_booth_title">Find Booth</string>
     <string name="card_booth_desc">Find booth locations where you want to watch.</string>
-
     <string name="card_performance_title">Performances Schedule</string>
     <string name="card_performance_desc">Check for performances schedule and enjoy!</string>
+    <string name="title_activity_find_booth">FindBooth</string>
+    <string name="title_activity_performance_schedule">PerformanceSchedule</string>
 
 </resources>

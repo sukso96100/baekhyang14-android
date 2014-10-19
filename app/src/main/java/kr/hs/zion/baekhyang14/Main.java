@@ -1,9 +1,11 @@
 package kr.hs.zion.baekhyang14;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -20,11 +22,30 @@ public class Main extends ActionBarActivity {
 
         final ScrollView SV = (ScrollView) findViewById(R.id.scrollview);
         final View header = (View) findViewById(R.id.header);
+        final ColorDrawable Transparent = new ColorDrawable(Color.TRANSPARENT);
+        final ColorDrawable Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
+
+        CardView BoothCard = (CardView) findViewById(R.id.booth);
+        CardView PerformanceCard = (CardView) findViewById(R.id.performance);
+
+        BoothCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main.this, FindBooth.class));
+            }
+        });
+
+        PerformanceCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Main.this, PerformanceSchedule.class));
+            }
+        });
 
         if(SV.getScrollY()<=header.getBottom()/2){
-            getSupportActionBar().hide();
+            getSupportActionBar().setBackgroundDrawable(Transparent);
         }else{
-            getSupportActionBar().show();
+            getSupportActionBar().setBackgroundDrawable(Darkblue);
         }
 
         SV.setOnTouchListener(new View.OnTouchListener() {
@@ -33,23 +54,23 @@ public class Main extends ActionBarActivity {
                 switch (event.getAction()){
                     case MotionEvent.ACTION_MOVE:
                         if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().hide();
+                            getSupportActionBar().setBackgroundDrawable(Transparent);
                         }else{
-                            getSupportActionBar().show();
+                            getSupportActionBar().setBackgroundDrawable(Darkblue);
                         }
                         break;
                     case MotionEvent.ACTION_DOWN:
                         if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().hide();
+                            getSupportActionBar().setBackgroundDrawable(Transparent);
                         }else{
-                            getSupportActionBar().show();
+                            getSupportActionBar().setBackgroundDrawable(Darkblue);
                         }
                         break;
                     case MotionEvent.ACTION_UP:
                         if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().hide();
+                            getSupportActionBar().setBackgroundDrawable(Transparent);
                         }else{
-                            getSupportActionBar().show();
+                            getSupportActionBar().setBackgroundDrawable(Darkblue);
                         }
                         break;
 
