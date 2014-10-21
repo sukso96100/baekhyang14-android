@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.hs.zion.baekhyang14" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -20,7 +23,8 @@
         <activity
             android:name=".FindBooth"
             android:label="@string/title_activity_find_booth"
-            android:parentActivityName=".Main" >
+            android:parentActivityName=".Main"
+            android:theme="@style/Theme.Zion_BaekhyangFest.Overlay" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
@@ -28,10 +32,19 @@
         <activity
             android:name=".PerformanceSchedule"
             android:label="@string/title_activity_performance_schedule"
-            android:parentActivityName=".Main" >
+            android:parentActivityName=".Main"
+            android:theme="@style/Theme.Zion_BaekhyangFest.Overlay" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
+        </activity>
+        <activity
+            android:name=".PerformanceDetail"
+            android:label="@string/title_activity_performance_detail"
+            android:parentActivityName=".PerformanceSchedule" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.PerformanceSchedule" />
         </activity>
     </application>
 

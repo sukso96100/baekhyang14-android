@@ -8,7 +8,8 @@
     <string name="card_booth_desc">Find booth locations where you want to watch.</string>
     <string name="card_performance_title">Performances Schedule</string>
     <string name="card_performance_desc">Check for performances schedule and enjoy!</string>
-    <string name="title_activity_find_booth">FindBooth</string>
-    <string name="title_activity_performance_schedule">PerformanceSchedule</string>
+    <string name="title_activity_find_booth">Find Booth</string>
+    <string name="title_activity_performance_schedule">Performance Schedule</string>
+    <string name="title_activity_performance_detail">Performance Detail</string>
 
 </resources>

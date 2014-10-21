@@ -8,7 +8,12 @@
     <string name="card_booth_title">부스 찿기</string>
     <string name="card_booth_desc">오전 시간동안 찿아가 보고 싶은 부스 위치 찿기.</string>
 
-    <string name="card_performance_title">공연 일정</string>
+    <string name="card_performance_title">부스 찿기</string>
     <string name="card_performance_desc">오후 시간동안 다양한 공연 일정들 확인하기.</string>
+
+    <string name="title_activity_find_booth">Find Booth</string>
+    <string name="title_activity_performance_schedule">공연 일정</string>
+    <string name="title_activity_performance_detail">공연 정보</string>
+
 
 </resources>

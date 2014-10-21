@@ -51,30 +51,10 @@ public class Main extends ActionBarActivity {
         SV.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()){
-                    case MotionEvent.ACTION_MOVE:
-                        if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().setBackgroundDrawable(Transparent);
-                        }else{
-                            getSupportActionBar().setBackgroundDrawable(Darkblue);
-                        }
-                        break;
-                    case MotionEvent.ACTION_DOWN:
-                        if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().setBackgroundDrawable(Transparent);
-                        }else{
-                            getSupportActionBar().setBackgroundDrawable(Darkblue);
-                        }
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        if(SV.getScrollY()<=header.getBottom()/2){
-                            getSupportActionBar().setBackgroundDrawable(Transparent);
-                        }else{
-                            getSupportActionBar().setBackgroundDrawable(Darkblue);
-                        }
-                        break;
-
-
+                if(SV.getScrollY()<=header.getBottom()/2){
+                    getSupportActionBar().setBackgroundDrawable(Transparent);
+                }else{
+                    getSupportActionBar().setBackgroundDrawable(Darkblue);
                 }
 
                 return false;
