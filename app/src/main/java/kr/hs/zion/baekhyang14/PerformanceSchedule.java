@@ -151,6 +151,7 @@ public class PerformanceSchedule extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        //Drawer Item Click Action
         DrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -267,6 +268,7 @@ public class PerformanceSchedule extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        //Drawer Toggle
         if(DrawerToggle.onOptionsItemSelected(item)){
             if(!isNavDrawerOpen){
                 NavigationDrawer.openDrawer(Gravity.LEFT);
