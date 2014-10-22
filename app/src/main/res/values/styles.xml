@@ -8,6 +8,7 @@
         <item name="colorPrimary">#ff373166</item>
         <item name="colorPrimaryDark">#ff28244b</item>
         <item name="colorAccent">#ff373166</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
     <style name="Theme.Zion_BaekhyangFest.Overlay" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -16,17 +17,12 @@
         <item name="colorPrimaryDark">#ff28244b</item>
         <item name="colorAccent">#ff373166</item>
         <item name="windowActionBarOverlay">true</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
-    <!--<style name="Theme.Zion_BaekhyangFest.Overlay"></style>-->
-    <!--<item name="actionBarStyle">@style/Widget.Zion_BaekhyangFest.Transparent</item>-->
-    <!--<item name="windowActionBarOverlay">true</item>-->
-
-    <!--<style name="Widget.Zion_BaekhyangFest" parent="Widget.AppCompat.ActionBar.Solid">-->
-        <!--<item name="android:background">#ff373166</item>-->
-    <!--</style>-->
-
-    <!--<style name="Widget.Zion_BaekhyangFest.Transparent">-->
-        <!--<item name="android:background">@android:color/transparent</item>-->
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
     <!--</style>-->
 </resources>

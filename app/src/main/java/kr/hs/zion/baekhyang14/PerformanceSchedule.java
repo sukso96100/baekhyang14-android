@@ -3,14 +3,22 @@ package kr.hs.zion.baekhyang14;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -22,9 +30,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 
 public class PerformanceSchedule extends ActionBarActivity {
+    private DrawerLayout NavigationDrawer;
+    private ActionBarDrawerToggle DrawerToggle;
+    private ListView DrawerList;
+    private ArrayList<String> DrawerArray;
+    private ArrayList<Drawable> IconArray;
+    private DrawerListAdapter Adapter;
+    private Boolean isNavDrawerOpen = false;
+
     private String[] TimeArray;
     private String[] TitleArray;
     private String[] PerformerArray;
@@ -80,6 +97,81 @@ public class PerformanceSchedule extends ActionBarActivity {
             }
         });
 
+        ImageView HeaderIcon = (ImageView) header.findViewById(R.id.icon);
+        ImageView HeaderBg = (ImageView) header.findViewById(R.id.background);
+
+        HeaderIcon.setImageDrawable(getResources().getDrawable(R.drawable.stage));
+        HeaderIcon.setBackgroundColor(Color.WHITE);
+
+        //Navigation Drawer
+        DrawerArray = new ArrayList<String>();
+        DrawerArray.add(getString(R.string.home));
+        DrawerArray.add(getString(R.string.title_activity_find_booth));
+        DrawerArray.add(getString(R.string.title_activity_performance_schedule));
+        DrawerArray.add(getString(R.string.title_activity_help));
+        DrawerArray.add(getString(R.string.title_activity_about));
+
+        IconArray = new ArrayList<Drawable>();
+        IconArray.add(getResources().getDrawable(R.drawable.ic_home_black));
+        IconArray.add(getResources().getDrawable(R.drawable.booth));
+        IconArray.add(getResources().getDrawable(R.drawable.stage));
+        IconArray.add(getResources().getDrawable(R.drawable.ic_help_black));
+        IconArray.add(getResources().getDrawable(R.drawable.ic_info_black));
+
+        NavigationDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerList = (ListView) findViewById(R.id.left_drawer);
+
+        Adapter = new DrawerListAdapter(this, DrawerArray, IconArray);
+        DrawerList.setAdapter(Adapter);
+
+        //Listen for Navigation Drawer State
+        DrawerToggle = new ActionBarDrawerToggle(this,
+                NavigationDrawer, R.string.drawer_open, R.string.drawer_close){
+            /** Called when a drawer has settled in a completely closed state. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                //Change ToolBar Color by Scroll Degree
+                if(SV.getScrollY()<=header.getBottom()/2){
+                    getSupportActionBar().setBackgroundDrawable(Transparent);
+                }else{
+                    getSupportActionBar().setBackgroundDrawable(Darkblue);
+                }
+                isNavDrawerOpen = false;
+            }
+
+            /** Called when a drawer has settled in a completely open state. */
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                getSupportActionBar().setBackgroundDrawable(Darkblue);
+                isNavDrawerOpen = true;
+            }
+
+        };
+        NavigationDrawer.setDrawerListener(DrawerToggle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        DrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(PerformanceSchedule.this, Main.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(PerformanceSchedule.this, FindBooth.class));
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        startActivity(new Intent(PerformanceSchedule.this, Help.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(PerformanceSchedule.this, About.class));
+                        break;
+                }
+            }
+        });
     }
 
 
@@ -89,6 +181,8 @@ public class PerformanceSchedule extends ActionBarActivity {
         AsyncJsonClient.get("http://www.youngbin-han.kr.pe/baekhyang14/performance/schedule.json", new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
+
+                ContentsRoot.removeAllViews();
                 //바이트 배열을 문자열로 변환
                 //Convert Byte Array to String
                 String ConvertedResponse = null;
@@ -170,5 +264,25 @@ public class PerformanceSchedule extends ActionBarActivity {
         });
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        if(DrawerToggle.onOptionsItemSelected(item)){
+            if(!isNavDrawerOpen){
+                NavigationDrawer.openDrawer(Gravity.LEFT);
+            }
+            else{
+                NavigationDrawer.closeDrawer(Gravity.LEFT);
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        // Sync the toggle state after onRestoreInstanceState has occurred.
+        DrawerToggle.syncState();
+    }
 }

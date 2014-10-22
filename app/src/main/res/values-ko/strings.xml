@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Common Things-->
+    <string name="fest_name">2014년도 백향제</string>
     <string name="app_name">백향제 2014</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="share">공유 하기</string>
+    <string name="home">홈</string>
 
+    <!--Navigation Drawer-->
+    <string name="drawer_open">네비게이션 서랍 열기</string>
+    <string name="drawer_close">네비게이션 서랍 닫기</string>
+
+    <!--Main Activity-->
     <string name="card_booth_title">부스 찿기</string>
     <string name="card_booth_desc">오전 시간동안 찿아가 보고 싶은 부스 위치 찿기.</string>
+    <string name="card_performance_title">공연 일정</string>
+    <string name="card_performance_desc">오후 시간동안 진행되는 다양한 공연 일정 보기.</string>
 
-    <string name="card_performance_title">부스 찿기</string>
-    <string name="card_performance_desc">오후 시간동안 다양한 공연 일정들 확인하기.</string>
+    <!--Find Booth Feature-->
+    <string name="title_activity_find_booth">부스 찿기</string>
 
-    <string name="title_activity_find_booth">Find Booth</string>
+    <!--Performance Schedule Feature-->
     <string name="title_activity_performance_schedule">공연 일정</string>
-    <string name="title_activity_performance_detail">공연 정보</string>
+    <string name="title_activity_performance_detail">자세한 공연 정보</string>
+    <string name="share_performance_info">공연정보 공유하기</string>
+
+    <!--Navigation Drawer-->
+    <string-array name="drawer_array">
+        <item>홈</item>
+        <item>부스 찿기</item>
+        <item>공연 일정</item>
+        <item>도움말</item>
+        <item>앱 정보</item>
+    </string-array>
+
+    <string-array name="drawer_array_less">
+        <item>도움말</item>
+        <item>앱 정보</item>
+    </string-array>
+
+    <string name="title_activity_help">도움말</string>
+    <string name="title_activity_about">앱 정보</string>
+
 
 
 </resources>
