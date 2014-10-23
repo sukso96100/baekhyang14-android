@@ -44,6 +44,14 @@
     <string name="title_activity_help">도움말</string>
     <string name="title_activity_about">앱 정보</string>
 
-
+    <!--App Info String Array-->
+    <string-array name="about_app">
+        <item>버전</item>
+        <item>앱 개발자 : 한영빈(sukso96100@gmail.com)</item>
+        <item>개발자 블로그 방문하기</item>
+        <item>백향제 2014 웹사이트 방문하기</item>
+        <item>이 앱의 소스코드 얻기</item>
+        <item>법적 고지사항 문서</item>
+    </string-array>
 
 </resources>

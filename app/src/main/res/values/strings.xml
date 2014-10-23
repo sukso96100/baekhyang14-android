@@ -31,4 +31,13 @@
     <string name="title_activity_help">Help</string>
     <string name="title_activity_about">About</string>
 
+    <!--App Info String Array-->
+    <string-array name="about_app">
+        <item>Version</item>
+        <item>Developed by Youngbin Han(sukso96100@gmail.com)</item>
+        <item>Visit the developer\'\ s Blog</item>
+        <item>Visit Baekhyang Festival 2014 Website</item>
+        <item>Get the Source Code of This App</item>
+        <item>Legal Notices Documents</item>
+    </string-array>
 </resources>
