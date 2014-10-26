@@ -47,6 +47,7 @@ public class PerformanceSchedule extends ActionBarActivity {
     private String[] PerformerArray;
     private String[] DescArray;
     private String[] TurnArray;
+    private String[] EmailArray;
 
     LinearLayout ContentsRoot;
     SwipeRefreshLayout SRL;
@@ -208,6 +209,7 @@ public class PerformanceSchedule extends ActionBarActivity {
                 PerformerArray = new String[SchedArray.length()];
                 DescArray = new String[SchedArray.length()];
                 TurnArray = new String[SchedArray.length()];
+                EmailArray = new String[SchedArray.length()];
 
                 for (int n = 0; n < SchedArray.length(); n++) {
                     // SchedArray 에서 각 요소로 Json 객체 생성
@@ -238,6 +240,7 @@ public class PerformanceSchedule extends ActionBarActivity {
                         PerformerArray[n] = EachSchedObj.getString("performers");
                         DescArray[n] = EachSchedObj.getString("desc");
                         TurnArray[n] = EachSchedObj.getString("turn");
+                        EmailArray[n] = EachSchedObj.getString("email");
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -250,6 +253,7 @@ public class PerformanceSchedule extends ActionBarActivity {
                             intent.putExtra("time", TimeArray[fn]);
                             intent.putExtra("performers", PerformerArray[fn]);
                             intent.putExtra("desc", DescArray[fn]);
+                            intent.putExtra("email", EmailArray[fn]);
                             startActivity(intent);
                         }
                     });

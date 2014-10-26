@@ -31,6 +31,14 @@
             android:text="Performer"
             android:id="@+id/performer"
             android:layout_marginLeft="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/send_feedback"
+            android:id="@+id/button"
+            android:layout_margin="10dp"/>
+
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/booth"

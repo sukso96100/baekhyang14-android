@@ -8,6 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="share">Share</string>
     <string name="home">Home</string>
+    <string name="send_feedback">Send Feedback</string>
 
     <!-- Navigation Drawer -->
     <string name="drawer_open">Open Navigation Drawer</string>
@@ -38,7 +39,12 @@
         <item>Visit Baekhyang Festival 2014 Website</item>
         <item>Get the Source Code of This App</item>
         <item>Legal Notices Documents</item>
+        <item>Send Feedback about the Festival to the
+            Current(2014.12.29) Zion High School Student Council</item>
+        <item>Download Data for Offline</item>
     </string-array>
+
+    <!--Legal Notices-->
     <string-array name="legal_array">
         <item>Sourcecode License</item>
         <item>Contributors</item>
@@ -51,4 +57,37 @@
     <string name="contrib">Contributors</string>
     <string name="thirdparty">3rd Party Notices</string>
 
+    <!--Help Screen-->
+    <string name="finding_booth">Finding the Booth You Want</string>
+    <string-array name="finding_booth_child">
+        <item>* Go to \"\ Find Booth\"\  Screen.</item>
+        <item>* Select the Floor the find the booth.</item>
+        <item>* Click the booth area you found to see details.</item>
+    </string-array>
+
+    <string name="checking_performance_schedule">Checking Performance Schedule</string>
+    <string-array name="checking_performance_schedule_child">
+        <item>* Go to \"\ Performance Schedule\"\  Screen.</item>
+        <item>* You can see Performance schedules in the screen.</item>
+        <item>* Find and click the schedule you want to see the details.</item>
+        <item>* You can use share button to share the information.</item>
+    </string-array>
+
+    <string name="sending_feedback">Sending Feedback</string>
+    <string-array name="sending_feedback_child">
+        <item>* To Send Feedback to the Developer, Use \"\ Send Feedback to the
+            developer via email\"\  which is located in \"\ About\"\  Screen.</item>
+        <item>* To Send Feedback about the festival, Use \"\ Send Feedback about the Festival to
+        the Current(2014.12.29) Zion High School Student Council\"\  which is also located in
+        \"\About\"\ Screen.</item>
+        <item>* To Send Feedback about each booth or performance, Click
+        \"\ Send Feedback\"\  Button which can be found in each booth or performance details screen.</item>
+    </string-array>
+
+    <string name="downloading_data">Downloading Data for Offline</string>
+    <string-array name="downloading_data_child">
+        <item>* Go to \"\ About\"\  Screen and Select \"\ Download Data for Offline \"\</item>
+        <item>* Once you have download data, you can see details about
+            each booth or performance without network connection.</item>
+    </string-array>
 </resources>

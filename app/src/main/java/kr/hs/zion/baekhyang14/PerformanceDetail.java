@@ -1,10 +1,13 @@
 package kr.hs.zion.baekhyang14;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 
@@ -13,6 +16,7 @@ public class PerformanceDetail extends ActionBarActivity {
     private String time;
     private String performer;
     private String desc;
+    private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +28,7 @@ public class PerformanceDetail extends ActionBarActivity {
         TextView Time = (TextView)findViewById(R.id.time);
         TextView Performer = (TextView)findViewById(R.id.performer);
         TextView Desc = (TextView)findViewById(R.id.desc);
+        Button SendFeedback = (Button) findViewById(R.id.button);
 
         Title.setText(getIntent().getStringExtra("title"));
         Time.setText(getIntent().getStringExtra("time"));
@@ -34,6 +39,16 @@ public class PerformanceDetail extends ActionBarActivity {
         time = getIntent().getStringExtra("time");
         performer = getIntent().getStringExtra("performers");
         desc = getIntent().getStringExtra("desc");
+        email = getIntent().getStringExtra("email");
+
+        SendFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("mailto:"+email));
+                startActivity(i);
+            }
+        });
     }
 
 
