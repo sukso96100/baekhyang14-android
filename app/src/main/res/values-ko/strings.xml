@@ -48,10 +48,24 @@
     <string-array name="about_app">
         <item>버전</item>
         <item>앱 개발자 : 한영빈(sukso96100@gmail.com)</item>
+        <item>이메일로 개발자에게 피드백 보내기</item>
         <item>개발자 블로그 방문하기</item>
         <item>백향제 2014 웹사이트 방문하기</item>
         <item>이 앱의 소스코드 얻기</item>
         <item>법적 고지사항 문서</item>
     </string-array>
+
+    <string-array name="legal_array">
+        <item>소스코단드 라이선스</item>
+        <item>기여자 명단</item>
+        <item>제3자 고지사항</item>
+    </string-array>
+
+    <string name="title_activity_legal_notices">법적 고지사항</string>
+    <string name="title_activity_docs">문서</string>
+    <string name="src_license">소스코드 라이선스</string>
+    <string name="contrib">기여자 명</string>
+    <string name="thirdparty">제3자 고지사항</string>
+
 
 </resources>

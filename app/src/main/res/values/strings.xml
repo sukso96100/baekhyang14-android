@@ -9,7 +9,7 @@
     <string name="share">Share</string>
     <string name="home">Home</string>
 
-    <!--Navigation Drawer-->
+    <!-- Navigation Drawer -->
     <string name="drawer_open">Open Navigation Drawer</string>
     <string name="drawer_close">Close Navigation Drawer</string>
 
@@ -26,18 +26,29 @@
     <string name="title_activity_performance_schedule">Performance Schedule</string>
     <string name="title_activity_performance_detail">Performance Detail</string>
     <string name="share_performance_info">Share Performance Information</string>
-
-
     <string name="title_activity_help">Help</string>
     <string name="title_activity_about">About</string>
 
-    <!--App Info String Array-->
+    <!-- App Info String Array -->
     <string-array name="about_app">
         <item>Version</item>
         <item>Developed by Youngbin Han(sukso96100@gmail.com)</item>
+        <item>Send Feedback to the developer via email</item>
         <item>Visit the developer\'\ s Blog</item>
         <item>Visit Baekhyang Festival 2014 Website</item>
         <item>Get the Source Code of This App</item>
         <item>Legal Notices Documents</item>
     </string-array>
+    <string-array name="legal_array">
+        <item>Sourcecode License</item>
+        <item>Contributors</item>
+        <item>3rd Party Notices</item>
+    </string-array>
+
+    <string name="title_activity_legal_notices">Legal Notices</string>
+    <string name="title_activity_docs">Docs</string>
+    <string name="src_license">Sourcecode License</string>
+    <string name="contrib">Contributors</string>
+    <string name="thirdparty">3rd Party Notices</string>
+
 </resources>

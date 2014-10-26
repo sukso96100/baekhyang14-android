@@ -62,6 +62,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
+        <activity
+            android:name=".LegalNotices"
+            android:label="@string/title_activity_legal_notices"
+            android:parentActivityName=".About" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.About" />
+        </activity>
+        <activity
+            android:name=".DocsActivity"
+            android:label="@string/title_activity_docs"
+            android:parentActivityName=".LegalNotices" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.LegalNotices" />
+        </activity>
     </application>
 
 </manifest>
