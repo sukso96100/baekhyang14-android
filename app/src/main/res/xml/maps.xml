@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<maps xmlns:android="http://schemas.android.com/apk/res/android">
+    <map id="@+id/boothmap">
+        <!--    1층-->
+        <area  id="@+id/household" shape="rect" coords="45,498,97,553" />
+        <area  id="@+id/health" shape="rect" coords="130,497,151,554" />
+        <area  id="@+id/pc2"  shape="rect" coords="184,497,253,556"/>
+        <area  id="@+id/pc1"  shape="rect" coords="260,498,329,554" />
+        <area  id="@+id/c110" shape="rect" coords="338,498,382,554" />
+        <area  id="@+id/c111"  shape="rect" coords="533,495,613,555" />
+        <area  id="@+id/c112" shape="rect" coords="619,498,672,554" />
+        <area  id="@+id/c113"  shape="rect" coords="679,499,728,553" />
+        <area  id="@+id/c114"  shape="rect" coords="733,499,787,555" />
+        <area  id="@+id/c115" shape="rect" coords="792,499,841,549" />
+        <area  id="@+id/weeclass" shape="rect" coords="884,500,946,555" />
+
+        <!--    2층-->
+        <area  id="@+id/biolab" shape="rect" coords="44,400,96,450" />
+        <area  id="@+id/c101" shape="rect" coords="130,403,178,454" />
+        <area  id="@+id/c102" shape="rect" coords="185,403,227,449" />
+        <area  id="@+id/c103" shape="rect" coords="235,404,279,451" />
+        <area  id="@+id/c104" shape="rect" coords="287,405,329,451" />
+        <area  id="@+id/zbs"  shape="rect" coords="575,400,610,449" />
+        <area  id="@+id/c105" shape="rect" coords="619,401,671,451" />
+        <area  id="@+id/c106" shape="rect" coords="677,401,729,451" />
+        <area  id="@+id/c107" shape="rect" coords="735,402,785,451" />
+        <area  id="@+id/c108" shape="rect" coords="792,399,844,448" />
+        <area  id="@+id/c109" shape="rect" coords="885,401,947,451" />
+
+        <!--    3층-->
+        <area  id="@+id/chemistry" shape="rect" coords="45,280,95,347" />
+        <area  id="@+id/c210" shape="rect" coords="128,279,176,347" />
+        <area  id="@+id/c211" shape="rect" coords="183,280,227,347" />
+        <area  id="@+id/c212"  shape="rect" coords="675,279,728,348" />
+        <area  id="@+id/c213" shape="rect" coords="734,280,787,347" />
+        <area  id="@+id/c214" shape="rect" coords="791,280,844,347" />
+        <area  id="@+id/language" shape="rect" coords="884,279,947,346" />
+
+        <!--    4층-->
+        <area  id="@+id/physics" shape="rect" coords="47,190,95,231" />
+        <area  id="@+id/c301" shape="rect" coords="130,191,176,231" />
+        <area  id="@+id/c302" shape="rect" coords="184,189,227,230" />
+        <area  id="@+id/c201" shape="rect" coords="234,191,279,232" />
+        <area  id="@+id/c202" shape="rect" coords="286,191,331,232" />
+        <area  id="@+id/c203" shape="rect" coords="336,191,380,231" />
+        <area  id="@+id/c204" shape="rect" coords="387,191,455,231" />
+        <area  id="@+id/c205" shape="rect" coords="533,191,611,232" />
+        <area  id="@+id/c206" shape="rect" coords="619,191,669,231" />
+        <area  id="@+id/c207" shape="rect" coords="675,191,725,231" />
+        <area  id="@+id/c208" shape="rect" coords="735,192,785,230" />
+        <area  id="@+id/c209" shape="rect" coords="792,191,845,231" />
+        <area  id="@+id/c215" shape="rect" coords="883,191,945,231" />
+
+        <!--    5층-->
+        <area  id="@+id/earth" shape="rect" coords="44,107,95,138" />
+        <area  id="@+id/c303" shape="rect" coords="129,107,177,137" />
+        <area  id="@+id/c304" shape="rect" coords="185,108,227,138" />
+        <area  id="@+id/c305" shape="rect" coords="234,109,279,138" />
+        <area  id="@+id/c306" shape="rect" coords="287,108,328,140" />
+        <area  id="@+id/c307" shape="rect" coords="337,109,381,141" />
+        <area  id="@+id/c308" shape="rect" coords="387,108,455,139" />
+        <area  id="@+id/c309" shape="rect" coords="462,110,526,138" />
+        <area  id="@+id/c310" shape="rect" coords="533,109,610,139" />
+        <area  id="@+id/c311" shape="rect" coords="619,110,671,137" />
+        <area  id="@+id/c312" shape="rect" coords="676,109,728,139" />
+        <area  id="@+id/c313" shape="rect" coords="735,108,787,138" />
+        <area  id="@+id/c314" shape="rect" coords="791,108,846,138" />
+    </map>
+   
+</maps>

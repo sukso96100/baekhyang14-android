@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -60,14 +62,20 @@ public class PerformanceSchedule extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_performance_schedule);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setBackgroundResource(R.drawable.polygon);
+        setSupportActionBar(toolbar);
+
         ContentsRoot = (LinearLayout) findViewById(R.id.contents);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         SRL = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         SV = (ScrollView) findViewById(R.id.scrollview);
-        header = (View) findViewById(R.id.header);
-        Transparent = new ColorDrawable(Color.TRANSPARENT);
-        Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
+//        header = (View) findViewById(R.id.header);
+//        Transparent = new ColorDrawable(Color.TRANSPARENT);
+//        Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
 
         SRL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -79,30 +87,30 @@ public class PerformanceSchedule extends ActionBarActivity {
 
        NetWorkTask();
 
-        if(SV.getScrollY()<=header.getBottom()/2){
-            getSupportActionBar().setBackgroundDrawable(Transparent);
-        }else{
-            getSupportActionBar().setBackgroundDrawable(Darkblue);
-        }
+//        if(SV.getScrollY()<=header.getBottom()/2){
+//            getSupportActionBar().setBackgroundDrawable(Transparent);
+//        }else{
+//            getSupportActionBar().setBackgroundDrawable(Darkblue);
+//        }
 
-        SV.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(SV.getScrollY()<=header.getBottom()/2){
-                    getSupportActionBar().setBackgroundDrawable(Transparent);
-                }else{
-                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-                }
+//        SV.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if(SV.getScrollY()<=header.getBottom()/2){
+//                    getSupportActionBar().setBackgroundDrawable(Transparent);
+//                }else{
+//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                }
+//
+//                return false;
+//            }
+//        });
 
-                return false;
-            }
-        });
+//        ImageView HeaderIcon = (ImageView) header.findViewById(R.id.icon);
+//        ImageView HeaderBg = (ImageView) header.findViewById(R.id.background);
 
-        ImageView HeaderIcon = (ImageView) header.findViewById(R.id.icon);
-        ImageView HeaderBg = (ImageView) header.findViewById(R.id.background);
-
-        HeaderIcon.setImageDrawable(getResources().getDrawable(R.drawable.stage));
-        HeaderIcon.setBackgroundColor(Color.WHITE);
+//        HeaderIcon.setImageDrawable(getResources().getDrawable(R.drawable.stage));
+//        HeaderIcon.setBackgroundColor(Color.WHITE);
 
         //Navigation Drawer
         DrawerArray = new ArrayList<String>();
@@ -132,18 +140,18 @@ public class PerformanceSchedule extends ActionBarActivity {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 //Change ToolBar Color by Scroll Degree
-                if(SV.getScrollY()<=header.getBottom()/2){
-                    getSupportActionBar().setBackgroundDrawable(Transparent);
-                }else{
-                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-                }
+//                if(SV.getScrollY()<=header.getBottom()/2){
+//                    getSupportActionBar().setBackgroundDrawable(Transparent);
+//                }else{
+//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                }
                 isNavDrawerOpen = false;
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                getSupportActionBar().setBackgroundDrawable(Darkblue);
                 isNavDrawerOpen = true;
             }
 
@@ -158,7 +166,7 @@ public class PerformanceSchedule extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        startActivity(new Intent(PerformanceSchedule.this, Main.class));
+                        NavUtils.navigateUpFromSameTask(PerformanceSchedule.this);
                         break;
                     case 1:
                         startActivity(new Intent(PerformanceSchedule.this, FindBooth.class));

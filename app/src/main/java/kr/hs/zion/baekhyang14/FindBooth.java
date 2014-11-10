@@ -1,19 +1,30 @@
 package kr.hs.zion.baekhyang14;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+
+import kr.hs.zion.baekhyang14.imagemap.ImageMap;
 
 
 public class FindBooth extends ActionBarActivity {
@@ -29,8 +40,9 @@ public class FindBooth extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_booth);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
 
         //Navigation Drawer
         DrawerArray = new ArrayList<String>();
@@ -78,7 +90,7 @@ public class FindBooth extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:
-                        startActivity(new Intent(FindBooth.this, Main.class));
+                        NavUtils.navigateUpFromSameTask(FindBooth.this);
                         break;
                     case 1:
                         break;
@@ -95,15 +107,16 @@ public class FindBooth extends ActionBarActivity {
             }
         });
 
+//        Contents
+        LinearLayout first = (LinearLayout)findViewById(R.id.first);
+        LinearLayout second = (LinearLayout)findViewById(R.id.second);
+        LinearLayout third = (LinearLayout)findViewById(R.id.third);
+        LinearLayout forth = (LinearLayout)findViewById(R.id.forth);
+        LinearLayout fifth = (LinearLayout)findViewById(R.id.fifth);
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.find_booth, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -124,5 +137,15 @@ public class FindBooth extends ActionBarActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         DrawerToggle.syncState();
+    }
+
+    private View createCard(String Id){
+        LayoutInflater LI = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        RelativeLayout RL = (RelativeLayout) LI.inflate(R.layout.item_booth, null);
+        TextView title = (TextView)RL.findViewById(R.id.title);
+        TextView member = (TextView)RL.findViewById(R.id.member);
+        TextView location = (TextView)RL.findViewById(R.id.location);
+
+        return RL;
     }
 }

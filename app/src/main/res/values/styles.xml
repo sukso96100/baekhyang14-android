@@ -24,5 +24,13 @@
         <item name="spinBars">true</item>
         <item name="color">@android:color/white</item>
     </style>
+
+    <style name="Theme.Zion_BaekhyangFest.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- customize the color palette -->
+        <item name="colorPrimary">#ff373166</item>
+        <item name="colorPrimaryDark">#ff28244b</item>
+        <item name="colorAccent">#ff373166</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
     <!--</style>-->
 </resources>

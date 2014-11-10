@@ -20,11 +20,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/root">
-        <include
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            layout="@layout/header_layout"
-            android:id="@+id/header"/>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_awesome_toolbar"
+            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:minHeight="?actionBarSize"
+            android:background="?colorPrimary"
+            android:paddingBottom="16dp"
+            android:gravity="bottom"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,6 +51,5 @@
         android:layout_gravity="start|bottom"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:background="#ffffff"
-        android:layout_marginTop="?attr/actionBarSize"/>
+        android:background="#ffffff"/>
 </android.support.v4.widget.DrawerLayout>

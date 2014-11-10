@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,8 +37,13 @@ public class Main extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setBackgroundResource(R.drawable.polygon);
+        setSupportActionBar(toolbar);
+
         final ScrollView SV = (ScrollView) findViewById(R.id.scrollview);
-        final View header = (View) findViewById(R.id.header);
+//        final View header = (View) findViewById(R.id.header);
         final ColorDrawable Transparent = new ColorDrawable(Color.TRANSPARENT);
         final ColorDrawable Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
 
@@ -58,26 +64,26 @@ public class Main extends ActionBarActivity {
             }
         });
 
-        //Change ToolBar Color by Scroll Degree
-        if(SV.getScrollY()<=header.getBottom()/2){
-            getSupportActionBar().setBackgroundDrawable(Transparent);
-        }else{
-            getSupportActionBar().setBackgroundDrawable(Darkblue);
-        }
-
-        //Change ToolBar Color by Scroll Degree
-        SV.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(SV.getScrollY()<=header.getBottom()/2){
-                    getSupportActionBar().setBackgroundDrawable(Transparent);
-                }else{
-                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-                }
-
-                return false;
-            }
-        });
+//        //Change ToolBar Color by Scroll Degree
+//        if(SV.getScrollY()<=header.getBottom()/2){
+//            getSupportActionBar().setBackgroundDrawable(Transparent);
+//        }else{
+//            getSupportActionBar().setBackgroundDrawable(Darkblue);
+//        }
+//
+//        //Change ToolBar Color by Scroll Degree
+//        SV.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if(SV.getScrollY()<=header.getBottom()/2){
+//                    getSupportActionBar().setBackgroundDrawable(Transparent);
+//                }else{
+//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                }
+//
+//                return false;
+//            }
+//        });
 
         //Navigation Drawer
         DrawerArray = new ArrayList<String>();
@@ -101,18 +107,18 @@ public class Main extends ActionBarActivity {
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 //Change ToolBar Color by Scroll Degree
-                if(SV.getScrollY()<=header.getBottom()/2){
-                    getSupportActionBar().setBackgroundDrawable(Transparent);
-                }else{
-                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-                }
+//                if(SV.getScrollY()<=header.getBottom()/2){
+//                    getSupportActionBar().setBackgroundDrawable(Transparent);
+//                }else{
+//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                }
                 isNavDrawerOpen = false;
             }
 
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                getSupportActionBar().setBackgroundDrawable(Darkblue);
+//                getSupportActionBar().setBackgroundDrawable(Darkblue);
                 isNavDrawerOpen = true;
             }
 
