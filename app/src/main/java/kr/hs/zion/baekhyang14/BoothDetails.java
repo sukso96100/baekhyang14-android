@@ -13,17 +13,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class PerformanceDetail extends ActionBarActivity {
+public class BoothDetails extends ActionBarActivity {
     private String title;
-    private String time;
-    private String performer;
+    private String location;
+    private String member;
     private String desc;
     private String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_performance_detail);
+        setContentView(R.layout.activity_booth_details);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
@@ -31,20 +32,20 @@ public class PerformanceDetail extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView Time = (TextView)findViewById(R.id.time);
-        TextView Performer = (TextView)findViewById(R.id.performer);
+        TextView Location = (TextView)findViewById(R.id.location);
+        TextView Member = (TextView)findViewById(R.id.member);
         TextView Desc = (TextView)findViewById(R.id.desc);
         Button SendFeedback = (Button) findViewById(R.id.button);
 
         title = getIntent().getStringExtra("title");
-        time = getIntent().getStringExtra("time");
-        performer = getIntent().getStringExtra("performers");
+        location = getIntent().getStringExtra("location");
+        member = getIntent().getStringExtra("members");
         desc = getIntent().getStringExtra("desc");
         email = getIntent().getStringExtra("email");
 
         getSupportActionBar().setTitle(title);
-        Time.setText(time);
-        Performer.setText(performer);
+        Location.setText(location);
+        Member.setText(member);
         Desc.setText(desc);
 
 
@@ -55,7 +56,7 @@ public class PerformanceDetail extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("mailto:"+email));
+                i.setData(Uri.parse("mailto:" + email));
                 startActivity(i);
             }
         });
@@ -77,17 +78,20 @@ public class PerformanceDetail extends ActionBarActivity {
         int id = item.getItemId();
         if (id == R.id.action_share) {
             String StringForSharing =
-                    getString(R.string.fest_name) + " - " + getString(R.string.title_activity_performance_detail)
-                    + "\n" + title + " - " + performer + "\n" + time + "\n" + desc;
+                    getString(R.string.fest_name) + " - " + getString(R.string.title_activity_booth_details)
+                            + "\n" + title + " - " + member + "\n" + location + "\n" + desc;
 
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.putExtra(Intent.EXTRA_TEXT, StringForSharing);
             sendIntent.setType("text/plain");
-            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share_performance_info)));
+            startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.share_booth_info)));
 
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }

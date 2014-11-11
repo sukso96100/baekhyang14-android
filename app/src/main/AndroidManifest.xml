@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Zion_BaekhyangFest" >
         <activity
-            android:name=".Main"
+            android:name="kr.hs.zion.baekhyang14.Main"
             android:label="@string/app_name"
             android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
             <intent-filter>
@@ -21,63 +21,72 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FindBooth"
+            android:name="kr.hs.zion.baekhyang14.FindBooth"
             android:label="@string/title_activity_find_booth"
-            android:parentActivityName=".Main"
+            android:parentActivityName="kr.hs.zion.baekhyang14.Main"
             android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
         <activity
-            android:name=".PerformanceSchedule"
+            android:name="kr.hs.zion.baekhyang14.PerformanceSchedule"
             android:label="@string/title_activity_performance_schedule"
-            android:parentActivityName=".Main"
+            android:parentActivityName="kr.hs.zion.baekhyang14.Main"
             android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
         <activity
-            android:name=".PerformanceDetail"
+            android:name="kr.hs.zion.baekhyang14.PerformanceDetail"
             android:label="@string/title_activity_performance_detail"
-            android:parentActivityName=".PerformanceSchedule"
-            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar">
+            android:parentActivityName="kr.hs.zion.baekhyang14.PerformanceSchedule"
+            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.PerformanceSchedule" />
         </activity>
         <activity
-            android:name=".Help"
+            android:name="kr.hs.zion.baekhyang14.Help"
             android:label="@string/title_activity_help"
-            android:parentActivityName=".Main" >
+            android:parentActivityName="kr.hs.zion.baekhyang14.Main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
         <activity
-            android:name=".About"
+            android:name="kr.hs.zion.baekhyang14.About"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".Main" >
+            android:parentActivityName="kr.hs.zion.baekhyang14.Main" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.Main" />
         </activity>
         <activity
-            android:name=".LegalNotices"
+            android:name="kr.hs.zion.baekhyang14.LegalNotices"
             android:label="@string/title_activity_legal_notices"
-            android:parentActivityName=".About" >
+            android:parentActivityName="kr.hs.zion.baekhyang14.About" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.About" />
         </activity>
         <activity
-            android:name=".DocsActivity"
+            android:name="kr.hs.zion.baekhyang14.DocsActivity"
             android:label="@string/title_activity_docs"
-            android:parentActivityName=".LegalNotices" >
+            android:parentActivityName="kr.hs.zion.baekhyang14.LegalNotices" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.LegalNotices" />
+        </activity>
+        <activity
+            android:name="kr.hs.zion.baekhyang14.BoothDetails"
+            android:label="@string/title_activity_booth_details"
+            android:parentActivityName="kr.hs.zion.baekhyang14.FindBooth"
+            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="kr.hs.zion.baekhyang14.FindBooth" />
         </activity>
     </application>
 

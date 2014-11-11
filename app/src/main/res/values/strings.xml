@@ -44,7 +44,7 @@
         <item>Download Data for Offline</item>
     </string-array>
 
-    <!--Legal Notices-->
+    <!-- Legal Notices -->
     <string-array name="legal_array">
         <item>Sourcecode License</item>
         <item>Contributors</item>
@@ -57,8 +57,9 @@
     <string name="contrib">Contributors</string>
     <string name="thirdparty">3rd Party Notices</string>
 
-    <!--Help Screen-->
+    <!-- Help Screen -->
     <string name="finding_booth">Finding the Booth You Want</string>
+
     <string-array name="finding_booth_child">
         <item>* Go to \"\ Find Booth\"\  Screen.</item>
         <item>* Select the Floor the find the booth.</item>
@@ -66,6 +67,7 @@
     </string-array>
 
     <string name="checking_performance_schedule">Checking Performance Schedule</string>
+
     <string-array name="checking_performance_schedule_child">
         <item>* Go to \"\ Performance Schedule\"\  Screen.</item>
         <item>* You can see Performance schedules in the screen.</item>
@@ -74,6 +76,7 @@
     </string-array>
 
     <string name="sending_feedback">Sending Feedback</string>
+
     <string-array name="sending_feedback_child">
         <item>* To Send Feedback to the Developer, Use \"\ Send Feedback to the
             developer via email\"\  which is located in \"\ About\"\  Screen.</item>
@@ -85,9 +88,14 @@
     </string-array>
 
     <string name="downloading_data">Downloading Data for Offline</string>
+
     <string-array name="downloading_data_child">
         <item>* Go to \"\ About\"\  Screen and Select \"\ Download Data for Offline \"\</item>
         <item>* Once you have download data, you can see details about
             each booth or performance without network connection.</item>
     </string-array>
+
+    <string name="title_activity_booth_details">Booth Details</string>
+    <string name="share_booth_info">Share Booth Information</string>
+
 </resources>

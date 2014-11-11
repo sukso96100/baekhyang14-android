@@ -6,6 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- The main content view -->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swiperefresh">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -145,12 +149,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:id="@+id/first">
-
             </LinearLayout>
         </HorizontalScrollView>
         </LinearLayout>
 </LinearLayout>
     </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
     <!-- The navigation drawer -->
     <ListView android:id="@+id/left_drawer"
