@@ -10,7 +10,7 @@
     <string name="home">홈</string>
     <string name="send_feedback">피드백 보내기</string>
     <string name="next">다음</string>
-    <string name="offline">온라인에서 불러오기 실패, 오프라인 데이터 불러는 중</string>
+    <string name="offline">온라인에서 불러오기 실패, 오프라인 데이터 불러오는 중</string>
 
     <!--Navigation Drawer-->
     <string name="drawer_open">네비게이션 서랍 열기</string>
@@ -111,11 +111,11 @@
     <string name="welcome">백향제 2014 앱을 사용해 주셔서 감사합니다.
         축제 기간동안 이 앱을 유용하게 사용하시기 바랍니다.
         앱을 사용하기 앞서, 간단한 사용법을 알아보세요.
-        계속하려면 다음 버튼을 누르거나 왼쪽으로 스와이프 합니다.</string>
+        계속하려면 다음 버튼을 누르세요.</string>
     <string name="welcome_title">환영합니다</string>
      <string name="simple_guide">부스 정보나 위치를 확인하려면 부스 찿기 기능을 사용하세요. \n
     그리고 공연 정보를 확인하려면, 공연 일정 기능을 사용하세요.\n
-    앱 사용에 문제가 있으면, 내장된 도움말을 읽어보거나, 저희 팀에 연락하세요.</string>
+    앱 사용에 문제가 있으면, 내장된 도움말을 읽어보거나, 개발자에게 연락하세요.</string>
     <string name="simple_guide_title">간단한 이용법 안내</string>
     <string name="open_help">도움말 열기</string>
     <string name="sending_feedback_desc">
