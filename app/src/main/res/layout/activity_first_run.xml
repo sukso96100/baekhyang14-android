@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="kr.hs.zion.baekhyang14.FirstRun">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_awesome_toolbar"
+        android:layout_height="160dp"
+        android:layout_width="match_parent"
+        android:minHeight="?actionBarSize"
+        android:background="?colorPrimary"
+        android:paddingBottom="16dp"
+        android:gravity="bottom"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:text="@string/welcome_title"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.Zion_BaekhyangFest"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/desc"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etc"
+            android:layout_toStartOf="@+id/next"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/next" />
+    </RelativeLayout>
+
+
+</LinearLayout>

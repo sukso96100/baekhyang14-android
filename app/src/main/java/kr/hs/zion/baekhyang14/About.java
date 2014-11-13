@@ -57,6 +57,11 @@ public class About extends ActionBarActivity {
                         break;
                     case 6:
                         startActivity(new Intent(About.this, LegalNotices.class));
+                    case 7:
+                        break;
+                    case 8:
+                        startService(new Intent(About.this, DataDownloadService.class));
+                        break;
                 }
             }
         });

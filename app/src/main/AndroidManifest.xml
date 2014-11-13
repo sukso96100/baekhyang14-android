@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -83,11 +84,26 @@
             android:name="kr.hs.zion.baekhyang14.BoothDetails"
             android:label="@string/title_activity_booth_details"
             android:parentActivityName="kr.hs.zion.baekhyang14.FindBooth"
-            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar">
+            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kr.hs.zion.baekhyang14.FindBooth" />
         </activity>
+        <activity
+            android:name="kr.hs.zion.baekhyang14.FirstRun"
+            android:label="@string/title_activity_first_run"
+            android:theme="@style/Theme.Zion_BaekhyangFest.NoActionBar" >
+        </activity>
+
+        <service
+            android:name="kr.hs.zion.baekhyang14.DataDownloadTask"
+            android:exported="false" >
+        </service>
+        <service
+            android:name="kr.hs.zion.baekhyang14.DataDownloadService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

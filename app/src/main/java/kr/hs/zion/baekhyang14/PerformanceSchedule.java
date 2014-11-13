@@ -1,10 +1,11 @@
 package kr.hs.zion.baekhyang14;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.NavUtils;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -15,14 +16,13 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.*;
 
@@ -54,9 +54,6 @@ public class PerformanceSchedule extends ActionBarActivity {
     LinearLayout ContentsRoot;
     SwipeRefreshLayout SRL;
     ScrollView SV;
-    View header;
-    ColorDrawable Transparent;
-    ColorDrawable Darkblue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,30 +84,6 @@ public class PerformanceSchedule extends ActionBarActivity {
 
        NetWorkTask();
 
-//        if(SV.getScrollY()<=header.getBottom()/2){
-//            getSupportActionBar().setBackgroundDrawable(Transparent);
-//        }else{
-//            getSupportActionBar().setBackgroundDrawable(Darkblue);
-//        }
-
-//        SV.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if(SV.getScrollY()<=header.getBottom()/2){
-//                    getSupportActionBar().setBackgroundDrawable(Transparent);
-//                }else{
-//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-//                }
-//
-//                return false;
-//            }
-//        });
-
-//        ImageView HeaderIcon = (ImageView) header.findViewById(R.id.icon);
-//        ImageView HeaderBg = (ImageView) header.findViewById(R.id.background);
-
-//        HeaderIcon.setImageDrawable(getResources().getDrawable(R.drawable.stage));
-//        HeaderIcon.setBackgroundColor(Color.WHITE);
 
         //Navigation Drawer
         DrawerArray = new ArrayList<String>();
@@ -236,15 +209,15 @@ public class PerformanceSchedule extends ActionBarActivity {
                     TextView PerformerTxt = (TextView) Item.findViewById(R.id.performer);
 
                     try {
-                        Log.d("Getting String Item",EachSchedObj.getString("time") + EachSchedObj.getString("name") +
+                        Log.d("Getting String Item",EachSchedObj.getString("time") + EachSchedObj.getString("title") +
                                 EachSchedObj.getString("performers"));
 
                         TimeTxt.setText(EachSchedObj.getString("time"));
-                        TitleTxt.setText(EachSchedObj.getString("name"));
+                        TitleTxt.setText(EachSchedObj.getString("title"));
                         PerformerTxt.setText(EachSchedObj.getString("performers"));
 
                         TimeArray[n] = EachSchedObj.getString("time");
-                        TitleArray[n] = EachSchedObj.getString("name");
+                        TitleArray[n] = EachSchedObj.getString("title");
                         PerformerArray[n] = EachSchedObj.getString("performers");
                         DescArray[n] = EachSchedObj.getString("desc");
                         TurnArray[n] = EachSchedObj.getString("turn");
@@ -272,7 +245,48 @@ public class PerformanceSchedule extends ActionBarActivity {
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                //Load Offline Data
+                Toast toast = Toast.makeText(PerformanceSchedule.this,
+                        getString(R.string.offline),Toast.LENGTH_LONG);
+                toast.show();
+                ContentsRoot.removeAllViews();
+                SharedPreferences OfflineData = getSharedPreferences("performance_data", MODE_PRIVATE);
+                int LENGTH = OfflineData.getInt("length",0);
+                if(LENGTH==0){}else{
+                    for(int n = 0; n < LENGTH; n++){
+                        LayoutInflater LI = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                        View Item = LI.inflate(R.layout.item_schedule, null);
+                        TextView TimeTxt = (TextView) Item.findViewById(R.id.time);
+                        TextView TitleTxt = (TextView) Item.findViewById(R.id.title);
+                        TextView PerformerTxt = (TextView) Item.findViewById(R.id.performer);
 
+                        final String TimeString = OfflineData.getString(n+"_time","00:00 PM");
+                        final String TitleString = OfflineData.getString(n+"_title","No Data");
+                        final String PerformerString = OfflineData.getString(n+"_performers","No Performers Data");
+                        final String DescString = OfflineData.getString(n+"_desc","Update Needed");
+                        final String EmailString = OfflineData.getString(n+"_email","example@example.com");
+
+                        TimeTxt.setText(TimeString);
+                        TitleTxt.setText(TitleString);
+                        PerformerTxt.setText(PerformerString);
+
+                        Item.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(PerformanceSchedule.this, PerformanceDetail.class);
+                                intent.putExtra("title", TitleString);
+                                intent.putExtra("time", TimeString);
+                                intent.putExtra("performers", PerformerString);
+                                intent.putExtra("desc", DescString);
+                                intent.putExtra("email", EmailString);
+                                startActivity(intent);
+                            }
+                        });
+                        ContentsRoot.addView(Item, n);
+
+                    }
+                }
+                SRL.setRefreshing(false);
             }
         });
     }

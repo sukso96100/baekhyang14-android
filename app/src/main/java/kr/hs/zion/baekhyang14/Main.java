@@ -42,6 +42,8 @@ public class Main extends ActionBarActivity {
         toolbar.setBackgroundResource(R.drawable.polygon);
         setSupportActionBar(toolbar);
 
+        startActivity(new Intent(this, FirstRun.class));
+
         final ScrollView SV = (ScrollView) findViewById(R.id.scrollview);
 //        final View header = (View) findViewById(R.id.header);
         final ColorDrawable Transparent = new ColorDrawable(Color.TRANSPARENT);

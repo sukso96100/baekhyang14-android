@@ -9,6 +9,8 @@
     <string name="share">Share</string>
     <string name="home">Home</string>
     <string name="send_feedback">Send Feedback</string>
+    <string name="next">Next</string>
+    <string name="offline">Failed loading from online, Loading from offline data</string>
 
     <!-- Navigation Drawer -->
     <string name="drawer_open">Open Navigation Drawer</string>
@@ -78,6 +80,7 @@
     <string name="sending_feedback">Sending Feedback</string>
 
     <string-array name="sending_feedback_child">
+        <item>* Send Feedback after attending the festival.</item>
         <item>* To Send Feedback to the Developer, Use \"\ Send Feedback to the
             developer via email\"\  which is located in \"\ About\"\  Screen.</item>
         <item>* To Send Feedback about the festival, Use \"\ Send Feedback about the Festival to
@@ -97,5 +100,50 @@
 
     <string name="title_activity_booth_details">Booth Details</string>
     <string name="share_booth_info">Share Booth Information</string>
+    <string name="title_activity_first_run">FirstRun</string>
+
+    <!-- First Run Screen -->
+    <string name="welcome">Thank you for using this Baekhyang Festival 2014 App.
+         Hope this app is useful for you during the festival.
+         Learn how to use this app before using it.
+         To Continue, Click Next or swipe to left.</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="simple_guide">Use Find Booth feature to find where and what the booth is.
+    and Use Performance Schedule feature to Check Performances.
+    If you have any trouble while using this app, read the Help or contact to the team.</string>
+    <string name="simple_guide_title">The Simple Guide</string>
+    <string name="open_help">Open Help</string>
+
+    <string name="sending_feedback_desc">        Send Feedback after attending the festival.\n
+        To Send Feedback to the Developer, Use \"\ Send Feedback to the
+            developer via email\"\  which is located in \"\ About\"\  Screen.\n
+        To Send Feedback about the festival, Use \"\ Send Feedback about the Festival to
+        the Current(2014.12.29) Zion High School Student Council\"\  which is also located in
+        \"\About\"\ Screen.\n
+        To Send Feedback about each booth or performance, Click
+        \"\ Send Feedback\"\  Button which can be found in each booth or performance details screen.</string>
+
+    <string name="downloading_data_desc">You can download all data for offline.
+        \n Click Download Data below button to download now.</string>
+    <string name="download_data_btn">Download Data</string>
+    <string name="ready_to_use">Now you are ready to use this app.
+    \n Click Finish Button to close this screen.</string>
+    <string name="ready_to_use_title">Ready To Use!</string>
+    <string name="finish">Finish</string>
+
+    <!--Notification-->
+    <string name="data_download_task_ticker">Starting Data Download Task</string>
+    <string name="data_download_task_notification_title_template">Downloading Data Started</string>
+    <string name="data_download_task_notification_placeholder_text_template">Downloading Booth Information and Performance Schedule data</string>
+
+    <string name="booth_data_done_title_ticker">Booth Data downloaded</string>
+    <string name="booth_data_done_desc">Done downloading Booth Data</string>
+
+    <string name="performance_data_done_title_ticker">Performance Data Downloaded</string>
+    <string name="performance_data_done_desc">Done downloading Performance Data</string>
+    
+    <string name="download_failed">Download Failed</string>
+    <string name="booth_data_failed">Failed downloading Booth Data</string>
+    <string name="performance_data_failed">Failed downloading Performance Data</string>
 
 </resources>
