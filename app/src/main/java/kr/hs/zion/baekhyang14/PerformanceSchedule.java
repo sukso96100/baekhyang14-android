@@ -313,4 +313,13 @@ public class PerformanceSchedule extends ActionBarActivity {
         // Sync the toggle state after onRestoreInstanceState has occurred.
         DrawerToggle.syncState();
     }
+
+    @Override
+    public void onBackPressed(){
+        if(isNavDrawerOpen){
+            NavigationDrawer.closeDrawer(Gravity.LEFT);
+        }else{
+            NavUtils.navigateUpFromSameTask(PerformanceSchedule.this);
+        }
+    }
 }

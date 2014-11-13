@@ -1,6 +1,7 @@
 package kr.hs.zion.baekhyang14;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,12 +44,15 @@ public class Main extends ActionBarActivity {
         toolbar.setBackgroundResource(R.drawable.polygon);
         setSupportActionBar(toolbar);
 
-        startActivity(new Intent(this, FirstRun.class));
-
-        final ScrollView SV = (ScrollView) findViewById(R.id.scrollview);
-//        final View header = (View) findViewById(R.id.header);
-        final ColorDrawable Transparent = new ColorDrawable(Color.TRANSPARENT);
-        final ColorDrawable Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
+        //Show Tutorial Screen if user run this app for the first time
+        SharedPreferences Pref = getSharedPreferences("pref",MODE_PRIVATE);
+        SharedPreferences.Editor PrefEdit = Pref.edit();
+        boolean firstrun = Pref.getBoolean("firstrun",false);
+        if(!firstrun){
+            startActivity(new Intent(this, FirstRun.class));
+            PrefEdit.putBoolean("firstrun",true);
+            PrefEdit.commit();
+        }else{}
 
         CardView BoothCard = (CardView) findViewById(R.id.booth);
         CardView PerformanceCard = (CardView) findViewById(R.id.performance);
@@ -65,27 +70,6 @@ public class Main extends ActionBarActivity {
                 startActivity(new Intent(Main.this, PerformanceSchedule.class));
             }
         });
-
-//        //Change ToolBar Color by Scroll Degree
-//        if(SV.getScrollY()<=header.getBottom()/2){
-//            getSupportActionBar().setBackgroundDrawable(Transparent);
-//        }else{
-//            getSupportActionBar().setBackgroundDrawable(Darkblue);
-//        }
-//
-//        //Change ToolBar Color by Scroll Degree
-//        SV.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if(SV.getScrollY()<=header.getBottom()/2){
-//                    getSupportActionBar().setBackgroundDrawable(Transparent);
-//                }else{
-//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-//                }
-//
-//                return false;
-//            }
-//        });
 
         //Navigation Drawer
         DrawerArray = new ArrayList<String>();
@@ -108,12 +92,6 @@ public class Main extends ActionBarActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                //Change ToolBar Color by Scroll Degree
-//                if(SV.getScrollY()<=header.getBottom()/2){
-//                    getSupportActionBar().setBackgroundDrawable(Transparent);
-//                }else{
-//                    getSupportActionBar().setBackgroundDrawable(Darkblue);
-//                }
                 isNavDrawerOpen = false;
             }
 
@@ -129,6 +107,7 @@ public class Main extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        //Drawer Item Click action
         DrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -182,5 +161,14 @@ public class Main extends ActionBarActivity {
         super.onPostCreate(savedInstanceState);
         // Sync the toggle state after onRestoreInstanceState has occurred.
         DrawerToggle.syncState();
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(isNavDrawerOpen){
+            NavigationDrawer.closeDrawer(Gravity.LEFT);
+        }else{
+            finish();
+        }
     }
 }

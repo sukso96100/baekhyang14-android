@@ -1,6 +1,7 @@
 package kr.hs.zion.baekhyang14;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.NavUtils;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -168,59 +170,6 @@ public class FindBooth extends ActionBarActivity {
         DrawerToggle.syncState();
     }
 
-    private View createCard(String Id, JSONObject Obj){
-        if(Obj==null){
-            Log.d("FindBooth","JsonObj is null");
-        }else{
-            Log.d("FindBooth","JsonObj is NOT null");
-        }
-
-        LayoutInflater LI = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
-        RelativeLayout RL = (RelativeLayout) LI.inflate(R.layout.item_booth, null);
-        TextView title = (TextView)RL.findViewById(R.id.title);
-        TextView member = (TextView)RL.findViewById(R.id.member);
-        TextView location = (TextView)RL.findViewById(R.id.location);
-
-        try {
-            JSONObject SingleObj = Obj.getJSONObject(Id);
-            title.setText(SingleObj.get("title").toString());
-            member.setText(SingleObj.get("members").toString());
-            location.setText(SingleObj.get("location").toString());
-
-            Title = SingleObj.get("title").toString();
-            Member = SingleObj.get("members").toString();
-            Location = SingleObj.get("location").toString();
-            Desc = SingleObj.get("desc").toString();
-            Email = SingleObj.get("email").toString();
-            Log.d("FindBooth","Creating Card:"+Title+Member+Location+Desc+Email);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        final String titlestring = Title;
-        final String memberstring = Member;
-        final String locationstring = Location;
-        final String descstring = Desc;
-        final String emailstring = Email;
-
-        RL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(FindBooth.this, BoothDetails.class);
-                intent.putExtra("title", titlestring);
-                intent.putExtra("members", memberstring);
-                intent.putExtra("location", locationstring);
-                intent.putExtra("desc", descstring);
-                intent.putExtra("email", emailstring);
-                startActivity(intent);
-            }
-        });
-        if(RL==null){
-            Log.d("FindBooth","RL is NULL");
-        }else{Log.d("FindBooth","RL is NOT NULL");}
-        return RL;
-    }
 
     private void NetWorkTask(){
 //
@@ -237,8 +186,8 @@ public class FindBooth extends ActionBarActivity {
                 String ConvertedResponse = null;
                 try {
                     ConvertedResponse = new String(bytes, "UTF-8");
-                    Log.d("JsonResponse", ConvertedResponse)
-                    ;                } catch (UnsupportedEncodingException e) {
+                    Log.d("JsonResponse", ConvertedResponse);
+                } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
 
@@ -331,8 +280,184 @@ public class FindBooth extends ActionBarActivity {
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
                 Log.d("FindBooth","Getting JSON Failed");
+//Load Offline Data
+                Toast toast = Toast.makeText(FindBooth.this,
+                        getString(R.string.offline),Toast.LENGTH_LONG);
+                toast.show();
+                //                1층 부스
+                first.removeAllViews();
+                first.addView(createCardFromOfflineData("household"));
+                first.addView(createCardFromOfflineData("health"));
+                first.addView(createCardFromOfflineData("pc2"));
+                first.addView(createCardFromOfflineData("pc1"));
+                first.addView(createCardFromOfflineData("c110"));
+                first.addView(createCardFromOfflineData("c110"));
+                first.addView(createCardFromOfflineData("c111"));
+                first.addView(createCardFromOfflineData("c112"));
+                first.addView(createCardFromOfflineData("c113"));
+                first.addView(createCardFromOfflineData("c114"));
+                first.addView(createCardFromOfflineData("c115"));
+                first.addView(createCardFromOfflineData("weeclass")); //ERROR
+
+
+
+
+//                2층 부스
+                second.removeAllViews();
+                second.addView(createCardFromOfflineData("biolab"));
+                second.addView(createCardFromOfflineData("c101"));
+                second.addView(createCardFromOfflineData("c102"));
+                second.addView(createCardFromOfflineData("c103"));
+                second.addView(createCardFromOfflineData("c104"));
+                second.addView(createCardFromOfflineData("zbs"));
+                second.addView(createCardFromOfflineData("c105"));
+                second.addView(createCardFromOfflineData("c106"));
+                second.addView(createCardFromOfflineData("c107"));
+                second.addView(createCardFromOfflineData("c108"));
+                second.addView(createCardFromOfflineData("c109"));
+
+
+//                3층 부스
+                third.removeAllViews();
+                third.addView(createCardFromOfflineData("chemistry"));
+                third.addView(createCardFromOfflineData("c210"));
+                third.addView(createCardFromOfflineData("c211"));
+                third.addView(createCardFromOfflineData("c212"));
+                third.addView(createCardFromOfflineData("c213"));
+                third.addView(createCardFromOfflineData("c214"));
+                third.addView(createCardFromOfflineData("language"));
+
+//                4층 부스
+                forth.removeAllViews();
+                forth.addView(createCardFromOfflineData("physics"));
+                forth.addView(createCardFromOfflineData("c301"));
+                forth.addView(createCardFromOfflineData("c302"));
+                forth.addView(createCardFromOfflineData("c201"));
+                forth.addView(createCardFromOfflineData("c202"));
+                forth.addView(createCardFromOfflineData("c203"));
+                forth.addView(createCardFromOfflineData("c204"));
+                forth.addView(createCardFromOfflineData("c205"));
+                forth.addView(createCardFromOfflineData("c206"));
+                forth.addView(createCardFromOfflineData("c207"));
+                forth.addView(createCardFromOfflineData("c208"));
+                forth.addView(createCardFromOfflineData("c209"));
+                forth.addView(createCardFromOfflineData("c215"));
+
+//                5층 부스
+                fifth.removeAllViews();
+                fifth.addView(createCardFromOfflineData("earth"));
+                fifth.addView(createCardFromOfflineData("c303"));
+                fifth.addView(createCardFromOfflineData("c304"));
+                fifth.addView(createCardFromOfflineData("c305"));
+                fifth.addView(createCardFromOfflineData("c306"));
+                fifth.addView(createCardFromOfflineData("c307"));
+                fifth.addView(createCardFromOfflineData("c308"));
+                fifth.addView(createCardFromOfflineData("c305"));
+                fifth.addView(createCardFromOfflineData("c310"));
+                fifth.addView(createCardFromOfflineData("c311"));
+                fifth.addView(createCardFromOfflineData("c312"));
+                fifth.addView(createCardFromOfflineData("c313"));
+                forth.addView(createCardFromOfflineData("c214"));
                 SRL.setRefreshing(false);
             }
         });
+    }
+
+
+    private View createCard(String Id, JSONObject Obj){
+        if(Obj==null){
+            Log.d("FindBooth","JsonObj is null");
+        }else{
+            Log.d("FindBooth","JsonObj is NOT null");
+        }
+
+        LayoutInflater LI = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        RelativeLayout RL = (RelativeLayout) LI.inflate(R.layout.item_booth, null);
+        TextView title = (TextView)RL.findViewById(R.id.title);
+        TextView member = (TextView)RL.findViewById(R.id.member);
+        TextView location = (TextView)RL.findViewById(R.id.location);
+
+        try {
+            JSONObject SingleObj = Obj.getJSONObject(Id);
+            title.setText(SingleObj.get("title").toString());
+            member.setText(SingleObj.get("members").toString());
+            location.setText(SingleObj.get("location").toString());
+
+            Title = SingleObj.get("title").toString();
+            Member = SingleObj.get("members").toString();
+            Location = SingleObj.get("location").toString();
+            Desc = SingleObj.get("desc").toString();
+            Email = SingleObj.get("email").toString();
+            Log.d("FindBooth","Creating Card:"+Title+Member+Location+Desc+Email);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        final String titlestring = Title;
+        final String memberstring = Member;
+        final String locationstring = Location;
+        final String descstring = Desc;
+        final String emailstring = Email;
+
+        RL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(FindBooth.this, BoothDetails.class);
+                intent.putExtra("title", titlestring);
+                intent.putExtra("members", memberstring);
+                intent.putExtra("location", locationstring);
+                intent.putExtra("desc", descstring);
+                intent.putExtra("email", emailstring);
+                startActivity(intent);
+            }
+        });
+        if(RL==null){
+            Log.d("FindBooth","RL is NULL");
+        }else{Log.d("FindBooth","RL is NOT NULL");}
+        return RL;
+    }
+
+    private View createCardFromOfflineData(String Id){
+        SharedPreferences OfflineData = getSharedPreferences("booth_data",MODE_PRIVATE);
+
+        LayoutInflater LI = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+        RelativeLayout RL = (RelativeLayout) LI.inflate(R.layout.item_booth, null);
+        TextView title = (TextView)RL.findViewById(R.id.title);
+        TextView member = (TextView)RL.findViewById(R.id.member);
+        TextView location = (TextView)RL.findViewById(R.id.location);
+
+        final String titlestring = OfflineData.getString(Id+"_title","No Data");
+        final String memberstring = OfflineData.getString(Id+"_members","No Data");
+        final String locationstring = OfflineData.getString(Id+"_location",Id);
+        final String descstring = OfflineData.getString(Id+"_desc","Updated Needed");
+        final String emailstring = OfflineData.getString(Id+"_email","example@example.com");
+
+        title.setText(titlestring);
+        member.setText(memberstring);
+        location.setText(locationstring);
+
+        RL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(FindBooth.this, BoothDetails.class);
+                intent.putExtra("title", titlestring);
+                intent.putExtra("members", memberstring);
+                intent.putExtra("location", locationstring);
+                intent.putExtra("desc", descstring);
+                intent.putExtra("email", emailstring);
+                startActivity(intent);
+            }
+        });
+        return  RL;
+    }
+    @Override
+    public void onBackPressed(){
+        if(isNavDrawerOpen){
+            NavigationDrawer.closeDrawer(Gravity.LEFT);
+        }else{
+            NavUtils.navigateUpFromSameTask(FindBooth.this);
+        }
     }
 }

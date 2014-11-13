@@ -14,14 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="kr.hs.zion.baekhyang14.PerformanceSchedule"
-        android:id="@+id/scrollview">
+        android:id="@+id/scrollview"
+        android:animateLayoutChanges="true">
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="kr.hs.zion.baekhyang14.FindBooth"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:animateLayoutChanges="true">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
@@ -36,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:animateLayoutChanges="true">
         <android.support.v7.widget.CardView
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_gravity="center"
@@ -51,12 +54,14 @@
             </android.support.v7.widget.CardView>
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/fifth">
+                android:id="@+id/fifth"
+                android:animateLayoutChanges="true">
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -74,12 +79,14 @@
         </android.support.v7.widget.CardView>
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/forth">
+                android:id="@+id/forth"
+                android:animateLayoutChanges="true">
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -97,12 +104,14 @@
         </android.support.v7.widget.CardView>
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/third">
+                android:id="@+id/third"
+                android:animateLayoutChanges="true">
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -120,12 +129,14 @@
         </android.support.v7.widget.CardView>
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/second">
+                android:id="@+id/second"
+                android:animateLayoutChanges="true">
 
             </LinearLayout>
         </HorizontalScrollView>
@@ -143,12 +154,14 @@
         </android.support.v7.widget.CardView>
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/first">
+                android:id="@+id/first"
+                android:animateLayoutChanges="true">
             </LinearLayout>
         </HorizontalScrollView>
         </LinearLayout>
