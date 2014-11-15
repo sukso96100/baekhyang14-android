@@ -62,7 +62,21 @@ public class PerformanceSchedule extends ActionBarActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setBackgroundResource(R.drawable.polygon);
+        int random = (int)(Math.random()*4)+1;
+        switch (random){
+            case 1:
+                toolbar.setBackgroundResource(R.drawable.polygon);
+                break;
+            case 2:
+                toolbar.setBackgroundResource(R.drawable.performance);
+                break;
+            case 3:
+                toolbar.setBackgroundResource(R.drawable.fireworks);
+                break;
+            case 4:
+                toolbar.setBackgroundResource(R.drawable.code);
+                break;
+        }
         setSupportActionBar(toolbar);
 
         ContentsRoot = (LinearLayout) findViewById(R.id.contents);
@@ -70,9 +84,6 @@ public class PerformanceSchedule extends ActionBarActivity {
 
         SRL = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         SV = (ScrollView) findViewById(R.id.scrollview);
-//        header = (View) findViewById(R.id.header);
-//        Transparent = new ColorDrawable(Color.TRANSPARENT);
-//        Darkblue = new ColorDrawable(Color.parseColor("#ff373166"));
 
         SRL.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

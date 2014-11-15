@@ -62,7 +62,21 @@ public class FindBooth extends ActionBarActivity {
         setContentView(R.layout.activity_find_booth);
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setBackgroundResource(R.drawable.polygon);
+        int random = (int)(Math.random()*4)+1;
+        switch (random){
+            case 1:
+                toolbar.setBackgroundResource(R.drawable.polygon);
+                break;
+            case 2:
+                toolbar.setBackgroundResource(R.drawable.performance);
+                break;
+            case 3:
+                toolbar.setBackgroundResource(R.drawable.fireworks);
+                break;
+            case 4:
+                toolbar.setBackgroundResource(R.drawable.code);
+                break;
+        }
         setSupportActionBar(toolbar);
         first = (LinearLayout) findViewById(R.id.first);
         second = (LinearLayout)findViewById(R.id.second);
