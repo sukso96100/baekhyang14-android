@@ -57,6 +57,7 @@ public class About extends ActionBarActivity {
                         break;
                     case 6:
                         startActivity(new Intent(About.this, LegalNotices.class));
+                        break;
                     case 7:
                         i.setData(Uri.parse("mailto:as7948@naver.com"));
                         startActivity(i);

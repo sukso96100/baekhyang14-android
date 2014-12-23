@@ -23,10 +23,29 @@ E : sukso96100@gmail.com
 D : maintainer of this project
 W : http://youngbin-han.kr.pe
 
+N : Hyungi, Shin
+D : Worker of Performance Information data
+E : tlsgusrl9942@gmail.com
+
+N : Hyesu, Shin
+D : Worker of Booth Information data
+E : exeplain@naver.com
+
 ====================
 
 Contributors of this project
 이 프로젝트의 기여자
 
 N : The Zion High School Student Council (2014 2nd Semester ~ 2015 1st Semester)
-D : Provider of the informations about Baekhyang Festival 2014 
+D : Provider of the informations about Baekhyang Festival 2014
+
+N : Jasun Lim
+D : Provider of the map of the Zion High School
+E : jasun6@naver.com
+
+N : Eunjoong, Kim
+D : Provider of the map of the Zion High School
+
+N : Woongkyu, Park
+D : Tester of this app
+E : pwk824@gmail.com
