@@ -15,21 +15,21 @@
     <string name="feedback_turn">순서 : </string>
     <string name="feedback_location">위치 : </string>
     <string name="feedback_detail">설명 : </string>
-    <string name="feedback_body">피드 내용 : </string>
+    <string name="feedback_body">피드백 내용 : </string>
 
 
     <!--Navigation Drawer-->
-    <string name="drawer_open">네비게이션 서랍 열기</string>
-    <string name="drawer_close">네비게이션 서랍 닫기</string>
+    <string name="drawer_open">내비게이션 서랍 열기</string>
+    <string name="drawer_close">내비게이션 서랍 닫기</string>
 
     <!--Main Activity-->
-    <string name="card_booth_title">부스 찿기</string>
-    <string name="card_booth_desc">오전 시간동안 찿아가 보고 싶은 부스 위치 찿기.</string>
+    <string name="card_booth_title">부스 찾기</string>
+    <string name="card_booth_desc">오전 시간 동안 찾아가 보고 싶은 부스 위치 찾기.</string>
     <string name="card_performance_title">공연 일정</string>
-    <string name="card_performance_desc">오후 시간동안 진행되는 다양한 공연 일정 보기.</string>
+    <string name="card_performance_desc">오후 시간 동안 진행되는 다양한 공연 일정 보기.</string>
 
     <!--Find Booth Feature-->
-    <string name="title_activity_find_booth">부스 찿기</string>
+    <string name="title_activity_find_booth">부스 찾기</string>
 
     <!--Performance Schedule Feature-->
     <string name="title_activity_performance_schedule">공연 일정</string>
@@ -39,7 +39,7 @@
     <!--Navigation Drawer-->
     <string-array name="drawer_array">
         <item>홈</item>
-        <item>부스 찿기</item>
+        <item>부스 찾기</item>
         <item>공연 일정</item>
         <item>도움말</item>
         <item>앱 정보</item>
@@ -63,7 +63,7 @@
         <item>이 앱의 소스코드 얻기</item>
         <item>법적 고지사항 문서</item>
         <item>현재(2014.12.29) 시온고등학교 학생회에 축제에 대한 의견 보내기</item>
-        <item>오프라인에서 사용 가능하도록 디바이스에 데이터 다운로드</item>
+        <item>오프라인에서 사용할 수 있도록 디바이스에 데이터 다운로드</item>
     </string-array>
 
     <string-array name="legal_array">
@@ -79,10 +79,10 @@
     <string name="thirdparty">제3자 고지사항</string>
 
     <!--Help Screen-->
-    <string name="finding_booth">원하는 부스 찿기</string>
+    <string name="finding_booth">원하는 부스 찾기</string>
     <string-array name="finding_booth_child">
-        <item>* \"\ 부스 찿기\"\  화면으로 이동하세요.</item>
-        <item>* 부스를 찿기 위해, 원하시는 층을 선택하세요.</item>
+        <item>* \"\ 부스 찾기\"\  화면으로 이동하세요.</item>
+        <item>* 부스를 찾기 위해, 원하시는 층을 선택하세요.</item>
         <item>* 찿으신 부스를 클릭하시면, 부스에 대한 자세한 정보를 보실 수 있습니다.</item>
     </string-array>
 
@@ -106,7 +106,7 @@
 
     <string name="downloading_data">오프라인에 대비하여 데이터 받아두기</string>
     <string-array name="downloading_data_child">
-        <item>* 앱 정보 화면으로 이동하셔서, \"\ 오프라인에서 사용 가능하도록 디바이스에 데이터 다운로드\"\
+        <item>* 앱 정보 화면으로 이동하셔서, \"\ 오프라인에서 사용할 수 있도록 디바이스에 데이터 다운로드\"\
           를 클릭하시면, 데이터를 받으실 수 있습니다.</item>
         <item>* 데이터를 받으신 후에는, 네트워크 연결 없이도 부스 및 공연 정보를 보실 수 있습니다.</item>
     </string-array>
@@ -119,7 +119,7 @@
         앱을 사용하기 앞서, 간단한 사용법을 알아보세요.
         계속하려면 다음 버튼을 누르세요.</string>
     <string name="welcome_title">환영합니다</string>
-     <string name="simple_guide">부스 정보나 위치를 확인하려면 부스 찿기 기능을 사용하세요. \n
+     <string name="simple_guide">부스 정보나 위치를 확인하려면 부스 찾기 기능을 사용하세요. \n
     그리고 공연 정보를 확인하려면, 공연 일정 기능을 사용하세요.\n
     앱 사용에 문제가 있으면, 내장된 도움말을 읽어보거나, 개발자에게 연락하세요.</string>
     <string name="simple_guide_title">간단한 이용법 안내</string>
