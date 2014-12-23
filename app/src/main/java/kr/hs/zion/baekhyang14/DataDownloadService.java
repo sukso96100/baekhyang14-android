@@ -161,6 +161,7 @@ public class DataDownloadService extends Service {
             Location = SingleObj.get("location").toString();
             Desc = SingleObj.get("desc").toString();
             Email = SingleObj.get("email").toString();
+
             Log.d("SaveBoothData","Saving Booth Data:"+Title+Member+Location+Desc+Email);
 
         } catch (JSONException e) {
@@ -172,6 +173,7 @@ public class DataDownloadService extends Service {
         BoothDataEditor.putString(Id+"_location",Location);
         BoothDataEditor.putString(Id+"_desc",Desc);
         BoothDataEditor.putString(Id+"_email",Email);
+
         BoothDataEditor.commit();
     }
 
@@ -222,6 +224,7 @@ public class DataDownloadService extends Service {
                                 PerformanceDataEditor.putString(n+"_desc",EachSchedObj.getString("desc"));
                                 PerformanceDataEditor.putString(n+"_email",EachSchedObj.getString("email"));
                                 PerformanceDataEditor.putString(n+"_title",EachSchedObj.getString("title"));
+                                PerformanceDataEditor.putString(n+"_turn",EachSchedObj.getString("turn"));
                                 PerformanceDataEditor.commit();
 
                             } catch (JSONException e) {

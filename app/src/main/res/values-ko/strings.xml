@@ -11,6 +11,12 @@
     <string name="send_feedback">피드백 보내기</string>
     <string name="next">다음</string>
     <string name="offline">온라인에서 불러오기 실패, 오프라인 데이터 불러오는 중</string>
+    <string name="feedback_about">다음에 대한 피드백 : </string>
+    <string name="feedback_turn">순서 : </string>
+    <string name="feedback_location">위치 : </string>
+    <string name="feedback_detail">설명 : </string>
+    <string name="feedback_body">피드 내용 : </string>
+
 
     <!--Navigation Drawer-->
     <string name="drawer_open">네비게이션 서랍 열기</string>

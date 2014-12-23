@@ -55,8 +55,16 @@ public class BoothDetails extends ActionBarActivity {
         SendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String FeedbackAbout = getResources().getString(R.string.feedback_about);
+                String FeedbackLocation = getResources().getString(R.string.feedback_location);
+                String FeedbackDetail = getResources().getString(R.string.feedback_detail);
+                String FeedbackContent = getResources().getString(R.string.feedback_body);
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("mailto:" + email));
+                String MailTo = "mailto:"+email+"?subject="+FeedbackAbout+title+
+                        "&body="+FeedbackAbout+title+"\n"+FeedbackLocation+location+"\n"+
+                        FeedbackDetail+desc+"\n"+FeedbackContent;
+                i.setData(Uri.parse(MailTo));
                 startActivity(i);
             }
         });

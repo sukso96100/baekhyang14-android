@@ -11,6 +11,11 @@
     <string name="send_feedback">Send Feedback</string>
     <string name="next">Next</string>
     <string name="offline">Failed loading from online, Loading from offline data</string>
+    <string name="feedback_about">Feedback About : </string>
+    <string name="feedback_turn">Turn : </string>
+    <string name="feedback_location">Location : </string>
+    <string name="feedback_detail">Detail : </string>
+    <string name="feedback_body">Feedback Content : </string>
 
     <!-- Navigation Drawer -->
     <string name="drawer_open">Open Navigation Drawer</string>

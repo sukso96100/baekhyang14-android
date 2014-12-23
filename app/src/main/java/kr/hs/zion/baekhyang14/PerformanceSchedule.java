@@ -172,7 +172,8 @@ public class PerformanceSchedule extends ActionBarActivity {
     private void NetWorkTask(){
         AsyncHttpClient AsyncJsonClient = new AsyncHttpClient();
         SRL.setRefreshing(true);
-        AsyncJsonClient.get("http://www.youngbin-han.kr.pe/baekhyang14/performance/schedule.json", new AsyncHttpResponseHandler() {
+        AsyncJsonClient.get("http://www.youngbin-han.kr.pe/baekhyang14/performance/schedule.json",
+                new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
 
@@ -215,7 +216,7 @@ public class PerformanceSchedule extends ActionBarActivity {
 
                     LayoutInflater LI = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                     View Item = LI.inflate(R.layout.item_schedule, null);
-                    TextView TimeTxt = (TextView) Item.findViewById(R.id.time);
+                    TextView TurnTxt = (TextView) Item.findViewById(R.id.turn);
                     TextView TitleTxt = (TextView) Item.findViewById(R.id.title);
                     TextView PerformerTxt = (TextView) Item.findViewById(R.id.performer);
 
@@ -223,7 +224,7 @@ public class PerformanceSchedule extends ActionBarActivity {
                         Log.d("Getting String Item",EachSchedObj.getString("time") + EachSchedObj.getString("title") +
                                 EachSchedObj.getString("performers"));
 
-                        TimeTxt.setText(EachSchedObj.getString("time"));
+                        TurnTxt.setText(EachSchedObj.getString("turn"));
                         TitleTxt.setText(EachSchedObj.getString("title"));
                         PerformerTxt.setText(EachSchedObj.getString("performers"));
 
@@ -241,11 +242,12 @@ public class PerformanceSchedule extends ActionBarActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(PerformanceSchedule.this, PerformanceDetail.class);
-                            intent.putExtra("title", TitleArray[fn]);
+                            intent.putExtra("turn", TurnArray[fn]);
                             intent.putExtra("time", TimeArray[fn]);
                             intent.putExtra("performers", PerformerArray[fn]);
                             intent.putExtra("desc", DescArray[fn]);
                             intent.putExtra("email", EmailArray[fn]);
+                            intent.putExtra("title",TitleArray[fn]);
                             startActivity(intent);
                         }
                     });
@@ -267,17 +269,17 @@ public class PerformanceSchedule extends ActionBarActivity {
                     for(int n = 0; n < LENGTH; n++){
                         LayoutInflater LI = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                         View Item = LI.inflate(R.layout.item_schedule, null);
-                        TextView TimeTxt = (TextView) Item.findViewById(R.id.time);
+                        TextView TurnTxt = (TextView) Item.findViewById(R.id.turn);
                         TextView TitleTxt = (TextView) Item.findViewById(R.id.title);
                         TextView PerformerTxt = (TextView) Item.findViewById(R.id.performer);
 
-                        final String TimeString = OfflineData.getString(n+"_time","00:00 PM");
+                        final String TurnString = OfflineData.getString(n+"_turn","TURN");
                         final String TitleString = OfflineData.getString(n+"_title","No Data");
                         final String PerformerString = OfflineData.getString(n+"_performers","No Performers Data");
                         final String DescString = OfflineData.getString(n+"_desc","Update Needed");
                         final String EmailString = OfflineData.getString(n+"_email","example@example.com");
 
-                        TimeTxt.setText(TimeString);
+                        TurnTxt.setText(TurnString);
                         TitleTxt.setText(TitleString);
                         PerformerTxt.setText(PerformerString);
 
@@ -286,7 +288,7 @@ public class PerformanceSchedule extends ActionBarActivity {
                             public void onClick(View v) {
                                 Intent intent = new Intent(PerformanceSchedule.this, PerformanceDetail.class);
                                 intent.putExtra("title", TitleString);
-                                intent.putExtra("time", TimeString);
+                                intent.putExtra("turn", TurnString);
                                 intent.putExtra("performers", PerformerString);
                                 intent.putExtra("desc", DescString);
                                 intent.putExtra("email", EmailString);

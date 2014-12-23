@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class PerformanceDetail extends ActionBarActivity {
     private String title;
-    private String time;
+    private String turn;
     private String performer;
     private String desc;
     private String email;
@@ -31,19 +31,19 @@ public class PerformanceDetail extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView Time = (TextView)findViewById(R.id.time);
+        TextView Turn = (TextView)findViewById(R.id.turn);
         TextView Performer = (TextView)findViewById(R.id.performer);
         TextView Desc = (TextView)findViewById(R.id.desc);
         Button SendFeedback = (Button) findViewById(R.id.button);
 
         title = getIntent().getStringExtra("title");
-        time = getIntent().getStringExtra("time");
+        turn = getIntent().getStringExtra("turn");
         performer = getIntent().getStringExtra("performers");
         desc = getIntent().getStringExtra("desc");
         email = getIntent().getStringExtra("email");
 
         getSupportActionBar().setTitle(title);
-        Time.setText(time);
+        Turn.setText(turn);
         Performer.setText(performer);
         Desc.setText(desc);
 
@@ -54,8 +54,16 @@ public class PerformanceDetail extends ActionBarActivity {
         SendFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String FeedbackAbout = getResources().getString(R.string.feedback_about);
+                String FeedbackTurn = getResources().getString(R.string.feedback_turn);
+                String FeedbackDetail = getResources().getString(R.string.feedback_detail);
+                String FeedbackContent = getResources().getString(R.string.feedback_body);
+
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse("mailto:"+email));
+                String MailTo = "mailto:"+email+"?subject="+FeedbackAbout+title+
+                        "&body="+FeedbackAbout+title+"\n"+FeedbackTurn+turn+"\n"+
+                        FeedbackDetail+desc+"\n"+FeedbackContent;
+                i.setData(Uri.parse(MailTo));
                 startActivity(i);
             }
         });
@@ -78,7 +86,7 @@ public class PerformanceDetail extends ActionBarActivity {
         if (id == R.id.action_share) {
             String StringForSharing =
                     getString(R.string.fest_name) + " - " + getString(R.string.title_activity_performance_detail)
-                    + "\n" + title + " - " + performer + "\n" + time + "\n" + desc;
+                    + "\n(" + turn +")" + title + " - " + performer + "\n" + desc;
 
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
