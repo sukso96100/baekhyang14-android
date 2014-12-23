@@ -37,6 +37,19 @@
     <string name="title_activity_help">Help</string>
     <string name="title_activity_about">About</string>
 
+    <string-array name="drawer_array">
+        <item>Home</item>
+        <item>Find Booth</item>
+        <item>Performance Schedule</item>
+        <item>Help</item>
+        <item>About</item>
+    </string-array>
+
+    <string-array name="drawer_array_less">
+        <item>Help</item>
+        <item>About</item>
+    </string-array>
+
     <!-- App Info String Array -->
     <string-array name="about_app">
         <item>Version</item>
