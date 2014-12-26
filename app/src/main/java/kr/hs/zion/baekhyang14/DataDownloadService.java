@@ -15,6 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DataDownloadService extends Service {
     private SharedPreferences BoothData;
@@ -63,80 +65,95 @@ public class DataDownloadService extends Service {
                         }
 
                         JSONObject FullObj = null;
+                        JSONArray FirstF = null;
+                        JSONArray SecondF = null;
+                        JSONArray ThirdF = null;
+                        JSONArray FourthF = null;
+                        JSONArray FifthF = null;
                         try {
                             FullObj = new JSONObject(ConvertedResponse); //문자열에서 Json 객체 얻기
+                            FirstF = FullObj.getJSONArray("first_floor");
+                            SecondF = FullObj.getJSONArray("second_floor");
+                            ThirdF = FullObj.getJSONArray("third_floor");
+                            FourthF = FullObj.getJSONArray("fourth_floor");
+                            FifthF = FullObj.getJSONArray("fifth_floor");
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-//                1층 부스
-                        saveBoothData("household",FullObj);
-                        saveBoothData("health",FullObj);
-                        saveBoothData("pc2",FullObj);
-                        saveBoothData("pc1",FullObj);
-                        saveBoothData("c110",FullObj);
-                        saveBoothData("c110",FullObj);
-                        saveBoothData("c111",FullObj);
-                        saveBoothData("c112",FullObj);
-                        saveBoothData("c113",FullObj);
-                        saveBoothData("c114",FullObj);
-                        saveBoothData("c115",FullObj);
-                        saveBoothData("weeclass",FullObj); //ERROR
+
+                        Log.d("FirstCount",String.valueOf(FirstF.length()));
+
+
+                        //                1층 부스
+
+                        for(int n=0; n < FirstF.length(); n++){
+                            try {
+                                String CODE = FirstF.getString(n);
+                                saveBoothData(CODE, FullObj);
+                                saveBoothFloorData("first",CODE,n);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        BoothDataEditor.putInt("first_count",FirstF.length());
+                        BoothDataEditor.commit();
 
 //                2층 부스
-                        saveBoothData("biolab",FullObj);
-                        saveBoothData("c101",FullObj);
-                        saveBoothData("c102",FullObj);
-                        saveBoothData("c103",FullObj);
-                        saveBoothData("c104",FullObj);
-                        saveBoothData("zbs",FullObj);
-                        saveBoothData("c105",FullObj);
-                        saveBoothData("c106",FullObj);
-                        saveBoothData("c107",FullObj);
-                        saveBoothData("c108",FullObj);
-                        saveBoothData("c109",FullObj);
 
+                        for(int n=0; n < SecondF.length(); n++){
+                            try {
+                                String CODE = SecondF.getString(n);
+                                saveBoothData(CODE,FullObj);
+                                saveBoothFloorData("second",CODE,n);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        BoothDataEditor.putInt("second_count",SecondF.length());
+                        BoothDataEditor.commit();
 //                3층 부스
-                        saveBoothData("chemistry",FullObj);
-                        saveBoothData("c210",FullObj);
-                        saveBoothData("c211",FullObj);
-                        saveBoothData("c212",FullObj);
-                        saveBoothData("c213",FullObj);
-                        saveBoothData("c214",FullObj);
-                        saveBoothData("language",FullObj);
 
+                        for(int n=0; n < ThirdF.length(); n++){
+                            try {
+                                String CODE = ThirdF.getString(n);
+                                saveBoothData(CODE,FullObj);
+                                saveBoothFloorData("third",CODE,n);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        BoothDataEditor.putInt("third_count",ThirdF.length());
+                        BoothDataEditor.commit();
 //                4층 부스
-                        saveBoothData("physics",FullObj);
-                        saveBoothData("c301",FullObj);
-                        saveBoothData("c302",FullObj);
-                        saveBoothData("c201",FullObj);
-                        saveBoothData("c202",FullObj);
-                        saveBoothData("c203",FullObj);
-                        saveBoothData("c204",FullObj);
-                        saveBoothData("c205",FullObj);
-                        saveBoothData("c206",FullObj);
-                        saveBoothData("c207",FullObj);
-                        saveBoothData("c208",FullObj);
-                        saveBoothData("c209",FullObj);
-                        saveBoothData("c215",FullObj);
 
+                        for(int n=0; n < FourthF.length(); n++){
+                            try {
+                                String CODE = FourthF.getString(n);
+                                saveBoothData(CODE,FullObj);
+                                saveBoothFloorData("fourth",CODE,n);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        BoothDataEditor.putInt("fourth_count",FourthF.length());
+                        BoothDataEditor.commit();
 //                5층 부스
-                        saveBoothData("earth",FullObj);
-                        saveBoothData("c303",FullObj);
-                        saveBoothData("c304",FullObj);
-                        saveBoothData("c305",FullObj);
-                        saveBoothData("c306",FullObj);
-                        saveBoothData("c307",FullObj);
-                        saveBoothData("c308",FullObj);
-                        saveBoothData("c305",FullObj);
-                        saveBoothData("c310",FullObj);
-                        saveBoothData("c311",FullObj);
-                        saveBoothData("c312",FullObj);
-                        saveBoothData("c313",FullObj);
-                        saveBoothData("c214",FullObj);
 
-
+                        for(int n=0; n < FifthF.length(); n++){
+                            try {
+                                String CODE = FifthF.getString(n);
+                                saveBoothData(CODE,FullObj);
+                                saveBoothFloorData("fifth",CODE,n);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        BoothDataEditor.putInt("fifth_count",FifthF.length());
+                        BoothDataEditor.commit();
                         DataDownloadTaskNotification.notify(DataDownloadService.this, 1);
+
                     }
+
 
                     @Override
                     public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
@@ -146,6 +163,12 @@ public class DataDownloadService extends Service {
                 });
     }
 
+    private void saveBoothFloorData(String floor, String code, int num){
+        BoothDataEditor = BoothData.edit();
+        BoothDataEditor.putString(floor+num,code);
+        BoothDataEditor.commit();
+    }
+
     private void saveBoothData(String Id, JSONObject Obj){
         BoothDataEditor = BoothData.edit();
         String Title = "Data Update Needed";
@@ -153,6 +176,7 @@ public class DataDownloadService extends Service {
         String Location = "Data Update Needed";
         String Desc = "Data Update Needed";
         String Email = "Data Update Needed";
+
         try {
             JSONObject SingleObj = Obj.getJSONObject(Id);
             //Get Each String

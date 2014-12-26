@@ -27,11 +27,13 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import org.apache.http.Header;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FindBooth extends ActionBarActivity {
     private DrawerLayout NavigationDrawer;
@@ -47,7 +49,7 @@ public class FindBooth extends ActionBarActivity {
     LinearLayout first;
     LinearLayout second;
     LinearLayout third;
-    LinearLayout forth;
+    LinearLayout fourth;
     LinearLayout fifth;
 
     String Title;
@@ -55,6 +57,10 @@ public class FindBooth extends ActionBarActivity {
     String Location;
     String Desc;
     String Email;
+
+    String TAG = "FindBooth";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +87,7 @@ public class FindBooth extends ActionBarActivity {
         first = (LinearLayout) findViewById(R.id.first);
         second = (LinearLayout)findViewById(R.id.second);
         third = (LinearLayout)findViewById(R.id.third);
-        forth = (LinearLayout)findViewById(R.id.forth);
+        fourth = (LinearLayout)findViewById(R.id.fourth);
         fifth = (LinearLayout)findViewById(R.id.fifth);
         SRL = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
 
@@ -206,172 +212,129 @@ public class FindBooth extends ActionBarActivity {
                 }
 
                 JSONObject FullObj = null;
+                JSONArray FirstF = null;
+                JSONArray SecondF = null;
+                JSONArray ThirdF = null;
+                JSONArray FourthF = null;
+                JSONArray FifthF = null;
                 try {
                     FullObj = new JSONObject(ConvertedResponse); //문자열에서 Json 객체 얻기
                     JsonObj = FullObj;
+                    FirstF = JsonObj.getJSONArray("first_floor");
+                    SecondF = JsonObj.getJSONArray("second_floor");
+                    ThirdF = JsonObj.getJSONArray("third_floor");
+                    FourthF = JsonObj.getJSONArray("fourth_floor");
+                    FifthF = JsonObj.getJSONArray("fifth_floor");
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-
 //                1층 부스
                 first.removeAllViews();
-                first.addView(createCard("household",JsonObj));
-                first.addView(createCard("health",JsonObj));
-                first.addView(createCard("pc2",JsonObj));
-                first.addView(createCard("pc1",JsonObj));
-                first.addView(createCard("c110",JsonObj));
-                first.addView(createCard("c110",JsonObj));
-                first.addView(createCard("c111",JsonObj));
-                first.addView(createCard("c112",JsonObj));
-                first.addView(createCard("c113",JsonObj));
-                first.addView(createCard("c114",JsonObj));
-                first.addView(createCard("c115",JsonObj));
-                first.addView(createCard("weeclass",JsonObj)); //ERROR
-
-
-
+                for(int n=0; n < FirstF.length(); n++){
+                    try {
+                        String CODE = FirstF.getString(n);
+                        first.addView(createCard(CODE, JsonObj));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
 //                2층 부스
                 second.removeAllViews();
-                second.addView(createCard("biolab",JsonObj));
-                second.addView(createCard("c101",JsonObj));
-                second.addView(createCard("c102",JsonObj));
-                second.addView(createCard("c103",JsonObj));
-                second.addView(createCard("c104",JsonObj));
-                second.addView(createCard("zbs",JsonObj));
-                second.addView(createCard("c105",JsonObj));
-                second.addView(createCard("c106",JsonObj));
-                second.addView(createCard("c107",JsonObj));
-                second.addView(createCard("c108",JsonObj));
-                second.addView(createCard("c109",JsonObj));
-
+                for(int n=0; n < SecondF.length(); n++){
+                    try {
+                        String CODE = SecondF.getString(n);
+                        second.addView(createCard(CODE, JsonObj));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
 //                3층 부스
                 third.removeAllViews();
-                third.addView(createCard("chemistry",JsonObj));
-                third.addView(createCard("c210",JsonObj));
-                third.addView(createCard("c211",JsonObj));
-                third.addView(createCard("c212",JsonObj));
-                third.addView(createCard("c213",JsonObj));
-                third.addView(createCard("c214",JsonObj));
-                third.addView(createCard("language",JsonObj));
+                for(int n=0; n < ThirdF.length(); n++){
+                    try {
+                        String CODE = ThirdF.getString(n);
+                        third.addView(createCard(CODE, JsonObj));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
 //                4층 부스
-                forth.removeAllViews();
-                forth.addView(createCard("physics",JsonObj));
-                forth.addView(createCard("c301",JsonObj));
-                forth.addView(createCard("c302",JsonObj));
-                forth.addView(createCard("c201",JsonObj));
-                forth.addView(createCard("c202",JsonObj));
-                forth.addView(createCard("c203",JsonObj));
-                forth.addView(createCard("c204",JsonObj));
-                forth.addView(createCard("c205",JsonObj));
-                forth.addView(createCard("c206",JsonObj));
-                forth.addView(createCard("c207",JsonObj));
-                forth.addView(createCard("c208",JsonObj));
-                forth.addView(createCard("c209",JsonObj));
-                forth.addView(createCard("c215",JsonObj));
+                fourth.removeAllViews();
+                for(int n=0; n < FourthF.length(); n++){
+                    try {
+                        String CODE = FourthF.getString(n);
+                        fourth.addView(createCard(CODE, JsonObj));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
 //                5층 부스
                 fifth.removeAllViews();
-                fifth.addView(createCard("earth",JsonObj));
-                fifth.addView(createCard("c303",JsonObj));
-                fifth.addView(createCard("c304",JsonObj));
-                fifth.addView(createCard("c305",JsonObj));
-                fifth.addView(createCard("c306",JsonObj));
-                fifth.addView(createCard("c307",JsonObj));
-                fifth.addView(createCard("c308",JsonObj));
-                fifth.addView(createCard("c305",JsonObj));
-                fifth.addView(createCard("c310",JsonObj));
-                fifth.addView(createCard("c311",JsonObj));
-                fifth.addView(createCard("c312",JsonObj));
-                fifth.addView(createCard("c313",JsonObj));
-                forth.addView(createCard("c214",JsonObj));
+                for(int n=0; n < FifthF.length(); n++){
+                    try {
+                        String CODE = FifthF.getString(n);
+                        fifth.addView(createCard(CODE, JsonObj));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+
                 SRL.setRefreshing(false);
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
+                SharedPreferences OfflineData = getSharedPreferences("booth_data",MODE_PRIVATE);
                 Log.d("FindBooth","Getting JSON Failed");
-//Load Offline Data
+                //Load Offline Data
                 Toast toast = Toast.makeText(FindBooth.this,
                         getString(R.string.offline),Toast.LENGTH_LONG);
                 toast.show();
+                int FirstCount = OfflineData.getInt("first_count",0);
+                int SecondCount = OfflineData.getInt("second_count",0);
+                int ThirdCount = OfflineData.getInt("third_count",0);
+                int FourthCount = OfflineData.getInt("fourth_count",0);
+                int FifthCount = OfflineData.getInt("fifth_count",0);
+
+                Log.d(TAG,String.valueOf(FirstCount));
                 //                1층 부스
                 first.removeAllViews();
-                first.addView(createCardFromOfflineData("household"));
-                first.addView(createCardFromOfflineData("health"));
-                first.addView(createCardFromOfflineData("pc2"));
-                first.addView(createCardFromOfflineData("pc1"));
-                first.addView(createCardFromOfflineData("c110"));
-                first.addView(createCardFromOfflineData("c110"));
-                first.addView(createCardFromOfflineData("c111"));
-                first.addView(createCardFromOfflineData("c112"));
-                first.addView(createCardFromOfflineData("c113"));
-                first.addView(createCardFromOfflineData("c114"));
-                first.addView(createCardFromOfflineData("c115"));
-                first.addView(createCardFromOfflineData("weeclass")); //ERROR
-
-
-
+                for(int n=0; n < FirstCount; n++){
+                    String CODE = getFloorDataOffline("first",n);
+                    first.addView(createCardFromOfflineData(CODE));
+                }
 
 //                2층 부스
                 second.removeAllViews();
-                second.addView(createCardFromOfflineData("biolab"));
-                second.addView(createCardFromOfflineData("c101"));
-                second.addView(createCardFromOfflineData("c102"));
-                second.addView(createCardFromOfflineData("c103"));
-                second.addView(createCardFromOfflineData("c104"));
-                second.addView(createCardFromOfflineData("zbs"));
-                second.addView(createCardFromOfflineData("c105"));
-                second.addView(createCardFromOfflineData("c106"));
-                second.addView(createCardFromOfflineData("c107"));
-                second.addView(createCardFromOfflineData("c108"));
-                second.addView(createCardFromOfflineData("c109"));
+                for(int n=0; n < SecondCount; n++){
+                    second.addView(createCardFromOfflineData(getFloorDataOffline("second",n)));
+                }
 
 
 //                3층 부스
                 third.removeAllViews();
-                third.addView(createCardFromOfflineData("chemistry"));
-                third.addView(createCardFromOfflineData("c210"));
-                third.addView(createCardFromOfflineData("c211"));
-                third.addView(createCardFromOfflineData("c212"));
-                third.addView(createCardFromOfflineData("c213"));
-                third.addView(createCardFromOfflineData("c214"));
-                third.addView(createCardFromOfflineData("language"));
+                for(int n=0; n < ThirdCount; n++){
+                    third.addView(createCardFromOfflineData(getFloorDataOffline("third",n)));
+                }
 
 //                4층 부스
-                forth.removeAllViews();
-                forth.addView(createCardFromOfflineData("physics"));
-                forth.addView(createCardFromOfflineData("c301"));
-                forth.addView(createCardFromOfflineData("c302"));
-                forth.addView(createCardFromOfflineData("c201"));
-                forth.addView(createCardFromOfflineData("c202"));
-                forth.addView(createCardFromOfflineData("c203"));
-                forth.addView(createCardFromOfflineData("c204"));
-                forth.addView(createCardFromOfflineData("c205"));
-                forth.addView(createCardFromOfflineData("c206"));
-                forth.addView(createCardFromOfflineData("c207"));
-                forth.addView(createCardFromOfflineData("c208"));
-                forth.addView(createCardFromOfflineData("c209"));
-                forth.addView(createCardFromOfflineData("c215"));
+                fourth.removeAllViews();
+                for(int n=0; n < FourthCount; n++){
+                    fourth.addView(createCardFromOfflineData(getFloorDataOffline("fourth",n)));
+                }
 
 //                5층 부스
                 fifth.removeAllViews();
-                fifth.addView(createCardFromOfflineData("earth"));
-                fifth.addView(createCardFromOfflineData("c303"));
-                fifth.addView(createCardFromOfflineData("c304"));
-                fifth.addView(createCardFromOfflineData("c305"));
-                fifth.addView(createCardFromOfflineData("c306"));
-                fifth.addView(createCardFromOfflineData("c307"));
-                fifth.addView(createCardFromOfflineData("c308"));
-                fifth.addView(createCardFromOfflineData("c305"));
-                fifth.addView(createCardFromOfflineData("c310"));
-                fifth.addView(createCardFromOfflineData("c311"));
-                fifth.addView(createCardFromOfflineData("c312"));
-                fifth.addView(createCardFromOfflineData("c313"));
-                forth.addView(createCardFromOfflineData("c214"));
+                for(int n=0; n < FifthCount; n++){
+                    fifth.addView(createCardFromOfflineData(getFloorDataOffline("fifth",n)));
+                }
+
                 SRL.setRefreshing(false);
             }
         });
@@ -432,6 +395,12 @@ public class FindBooth extends ActionBarActivity {
         return RL;
     }
 
+    private String getFloorDataOffline(String floor, int num){
+        SharedPreferences OfflineData = getSharedPreferences("booth_data",MODE_PRIVATE);
+        String LocationCode = OfflineData.getString(floor+String.valueOf(num),"0");
+        Log.d("LocationCode",LocationCode);
+        return LocationCode;
+    }
     private View createCardFromOfflineData(String Id){
         SharedPreferences OfflineData = getSharedPreferences("booth_data",MODE_PRIVATE);
 
